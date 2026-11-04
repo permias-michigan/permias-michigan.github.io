@@ -335,9 +335,9 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .hero .hero-photo{opacity:0;transform:scale(1.03);animation:none;transition:opacity 1.6s ease,transform 8s linear}
 .hero .hero-photo.on{opacity:1;transform:scale(1.09)}
 .two-up .card img{height:230px}
-.card.accent{background:var(--blue);color:#fff;border:3px solid var(--gold);box-shadow:none}
+.card.accent{background:var(--night);color:#fff;border:3px solid var(--gold);box-shadow:none}
 .card.accent::before{background-image:var(--batik)}
-.card.accent:hover{box-shadow:0 22px 50px #2453ff55}
+.card.accent:hover{box-shadow:0 22px 50px #0b164040}
 .card.accent .c-year,.card.accent .c-go{color:var(--gold)}
 .card.accent .c-tag{background:var(--gold);box-shadow:none}
 .card.accent img{width:calc(100% + 54px);margin:-27px -27px 22px}
