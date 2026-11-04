@@ -3,7 +3,7 @@
 Website for the Indonesian Students Association at U-M. It's plain HTML, CSS, and JavaScript, so there's no build step.
 
 ## Pages
-`index.html` (home), `events.html`, `event.html` (one full page per event), and `team.html`.
+`index.html` (home), `events.html`, `event.html` (one full page per event), `team.html`, and `resources.html`.
 
 ## Update the content
 Nearly everything is in `js/content.js`. The home and about text is in `index.html`.

@@ -33,7 +33,7 @@
   var menu = el("button", "menu", "Menu"); menu.setAttribute("aria-expanded", "false"); menu.setAttribute("aria-controls", "nav");
   inner.appendChild(menu);
   var nav = el("nav"); nav.id = "nav";
-  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["#contact", "Contact", ""]].forEach(function (i) {
+  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["#contact", "Contact", ""]].forEach(function (i) {
     var a = link("", i[0], i[1]);
     if (i[2] === page || (page === "event" && i[2] === "events")) a.setAttribute("aria-current", "page");
     nav.appendChild(a);
