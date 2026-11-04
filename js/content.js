@@ -78,7 +78,7 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
-      id: "natw", date: "2026-11-12",
+      id: "natw", date: "2026-11-12", category: "Cultural event",
       title: "Night Around the World (NATW)",
       dateLabel: "November 12, 2026",
       venue: "The Diag",
@@ -89,7 +89,7 @@ window.SITE = {
       links: [{ label: "See the event on Instagram", url: "https://www.instagram.com/p/De9nCp8Rh21/" }]
     },
     {
-      id: "batik-day", date: "2026-10-22", featured: true,
+      id: "batik-day", date: "2026-10-22", category: "Cultural event",
       title: "Batik Day",
       theme: "Batik Experience: Wear the Story of Indonesia",
       dateLabel: "October 22, 2026, 12 to 2 pm",
@@ -116,17 +116,25 @@ window.SITE = {
       links: [{ label: "Explore the interactive batik map", url: "https://www.iwarebatik.org/interactive-map/?lang=id" }]
     },
     {
-      // Add the real date and details. The date below only sets its place in the list.
-      id: "fall-prof-dev", date: "2026-10-01", dateUnconfirmed: true,
-      title: "Fall Prof & Dev Program",
-      summary: "Details coming soon.",
-      overview: [],
-      highlights: [],
-      photos: [],
+      id: "fall-prof-dev", date: "2026-10-25", featured: true, cardPos: "center 63%", category: "Internal event",
+      title: "Professional Development Program: Building Your Career",
+      theme: "Real stories and career advice from Indonesians working in the US",
+      dateLabel: "October 25, 2026, 2 pm",
+      venue: "Munger Residence, Multimedia Room (Lower Lobby)",
+      summary: "Career stories and advice from two Indonesians working in the U.S.",
+      overview: ["Two guest speakers shared their career paths and talked with students about career opportunities in the U.S."],
+      speakers: [
+        { name: "Hari Budi", role: "Delivery Vehicle Preparation Specialist at Tesla", url: "https://www.linkedin.com/in/hari-budi-7120901b9" },
+        { name: "Muhammad Siddiq", role: "Geotechnical Engineer at Soils & Structures, U-M Class of 2026", url: "https://www.linkedin.com/in/muhammad-siddiq-abdulloh" }
+      ],
+      photos: [
+        { src: "assets/events/prof-dev/poster.jpg", caption: "Event poster" },
+        { src: "assets/events/prof-dev/session.jpg", caption: "Talking careers at Munger Residence" }
+      ],
       links: []
     },
     {
-      id: "icf-2026", date: "2026-04-03",
+      id: "icf-2026", date: "2026-04-03", category: "Cultural event",
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
       dateLabel: "March 20 to April 3, 2026",

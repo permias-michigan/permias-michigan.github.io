@@ -249,10 +249,11 @@
         if (e.featured) li.dataset.featured = "1";
     var a = link("card spot", eventUrl(e));
     if (e.photos && e.photos[0]) {
-      var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; a.appendChild(im);
+      var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; if (e.cardPos) im.style.objectPosition = e.cardPos; a.appendChild(im);
     }
     if (e.tba) a.appendChild(el("span", "c-year", "Soon"));
     else if (!e.dateUnconfirmed) a.appendChild(el("span", "c-year", e.date.slice(0, 4)));
+    if (e.category) a.appendChild(el("span", "c-tag", e.category));
     a.appendChild(el("strong", "", e.title));
     a.appendChild(el("span", "c-sum", e.summary));
     a.appendChild(el("span", "c-go", "View event"));
@@ -312,7 +313,7 @@
     document.title = e.title + " | PERMIAS Michigan";
     $("event-title").textContent = e.title;
     if (e.theme) $("event-theme").textContent = e.theme;
-    [e.dateLabel, e.venue].forEach(function (x) { if (x) $("event-facts").appendChild(el("li", "", x)); });
+    [e.category, e.dateLabel, e.venue].forEach(function (x) { if (x) $("event-facts").appendChild(el("li", "", x)); });
     var body = $("event-body");
     (e.overview || []).forEach(function (t, n2) { body.appendChild(el("p", n2 ? "ev-copy reveal" : "lead reveal", t)); });
     if (e.signup && e.date >= today) body.appendChild(link("btn blue", e.signup, "Sign up"));
@@ -320,6 +321,18 @@
       var hl = el("ul", "pills reveal");
       e.highlights.forEach(function (h) { hl.appendChild(el("li", "", h)); });
       body.appendChild(hl);
+    }
+    if (e.speakers && e.speakers.length) {
+      body.appendChild(el("h2", "spaced reveal", "Speakers"));
+      var sp = el("ul", "speakers");
+      e.speakers.forEach(function (s) {
+        var li = el("li", "reveal");
+        li.appendChild(el("h3", "", s.name));
+        li.appendChild(el("p", "", s.role));
+        if (s.url) li.appendChild(link("c-go", s.url, "LinkedIn profile"));
+        sp.appendChild(li);
+      });
+      body.appendChild(sp);
     }
     if (e.quote) {
       var q = el("blockquote", "reveal", "“" + e.quote.text + "”");

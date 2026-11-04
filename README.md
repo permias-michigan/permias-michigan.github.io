@@ -15,6 +15,7 @@ Nearly everything is in `js/content.js`. The home and about text is in `index.ht
   id: "thanksgiving-2026",        // lowercase, used in the page link
   date: "2026-11-21",             // last day of the event, YYYY-MM-DD
   title: "Thanksgiving Dinner",
+  category: "Cultural event",        // label shown on the card
   dateLabel: "November 21, 2026",
   venue: "Location",
   summary: "One sentence for the event list.",
