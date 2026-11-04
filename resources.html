@@ -24,10 +24,12 @@
     <li class="reveal"><a class="res-card spot" href="https://deanofstudents.umich.edu/student-programs/beyond-the-diag/"><h3>Find a place to live</h3><p>Get help with off-campus housing, roommates, leases, and landlords.</p><span class="c-go">Explore housing</span></a></li>
     <li class="reveal"><a class="res-card spot" href="https://internationalcenter.umich.edu/isss"><h3>International student support</h3><p>Find services and advising for international students and scholars.</p><span class="c-go">Visit the International Center</span></a></li>
   </ul>
-  <h2 class="res-title reveal">Community and food</h2>
+  <h2 class="res-title reveal">Community</h2>
   <ul class="res-grid">
     <li class="reveal"><a class="res-card spot" href="mailto:michiganpermias@gmail.com?subject=Join%20the%20PERMIAS%20WhatsApp%20group"><h3>Join our WhatsApp group</h3><p>Hear about events and meet the community. Email us with your name to request an invite.</p><span class="c-go">Request an invite</span></a></li>
-    <li class="reveal"><button type="button" id="grocery-open" class="res-card spot res-btn"><h3>Grocery</h3><p>Asian markets nearby, online delivery, and free food support for students.</p><span class="c-go">See the list</span></button></li>
+    <li class="reveal"><button type="button" data-open="groups-dialog" class="res-card spot res-btn"><h3>Sports and activity groups</h3><p>Find people for futsal, running, badminton, skiing, and more.</p><span class="c-go">See the groups</span></button></li>
+    <li class="reveal"><a class="res-card spot" href="https://www.google.com/maps/search/?api=1&amp;query=Indonesian%20Christian%20Church%20ICC%20Michigan%2010101%20Ann%20Arbor%20Rd%20Canton%20MI"><h3>ICC Michigan</h3><p>Indonesian Christian Church (ICC) Michigan, an Indonesian church community in the Canton area.</p><span class="c-go">View on the map</span></a></li>
+    <li class="reveal"><button type="button" data-open="grocery-dialog" class="res-card spot res-btn"><h3>Grocery</h3><p>Asian markets nearby, online delivery, and free food support for students.</p><span class="c-go">See the list</span></button></li>
   </ul>
   <h2 class="res-title reveal">Learn Indonesian</h2>
   <ul class="res-grid">
@@ -57,8 +59,13 @@
     <li class="reveal"><a class="res-card spot" href="https://uhc.umich.edu/emergencyurgent-care"><h3>Emergency and urgent care</h3><p>See where to go when you need care right away.</p><span class="c-go">View urgent care options</span></a></li>
   </ul>
 </section>
+<dialog id="groups-dialog" class="g-dialog" aria-label="Sports and activity groups">
+  <div class="g-head"><h2>Sports and activity groups</h2><button type="button" data-close class="g-close">Close</button></div>
+  <p class="g-intro">These community groups are on WhatsApp. Select a group to email us for an invite.</p>
+  <div class="g-list"><div class="g-wide"><ul class="g-stores"><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Futsal%20UMich%20WhatsApp%20group"><b>Futsal UMich</b><span>Futsal</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Badminton%20For%20Real%20WhatsApp%20group"><b>Badminton For Real</b><span>Badminton</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Peralatan%20Tenis%20WhatsApp%20group"><b>Peralatan Tenis</b><span>Tennis</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Golf%20WhatsApp%20group"><b>Golf</b><span>Golf</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Indorunners%20AA%20WhatsApp%20group"><b>Indorunners AA</b><span>Running</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20SWIM%20201%20WhatsApp%20group"><b>SWIM 201</b><span>Swimming</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20ICESKT%20101%20WhatsApp%20group"><b>ICESKT 101</b><span>Ice skating</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Ski%20WhatsApp%20group"><b>Ski</b><span>Skiing</span></a></li><li><a href="mailto:michiganpermias@gmail.com?subject=Join%20the%20Komunitas%20Pindahan%20WhatsApp%20group"><b>Komunitas Pindahan</b><span>Moving help</span></a></li></ul></div></div>
+</dialog>
 <dialog id="grocery-dialog" class="g-dialog" aria-label="Grocery list">
-  <div class="g-head"><h2>Grocery</h2><button type="button" id="grocery-close" class="g-close">Close</button></div>
+  <div class="g-head"><h2>Grocery</h2><button type="button" data-close class="g-close">Close</button></div>
   <div class="g-list">
         <div><h4>Free food support</h4><ul>
           <li><a href="https://mbc.studentlife.umich.edu/"><b>Maize &amp; Blue Cupboard</b><span>Campus pantry in Betsy Barbour Residence Hall, by appointment</span></a></li>
