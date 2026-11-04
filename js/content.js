@@ -28,11 +28,11 @@ window.SITE = {
         "Welcoming remarks from Ambassador Soesilo", "Gamelan Kyai Telaga Madu", "Traditional dances", "Live band", "Hands-on batik"
       ],
       schedule: [
-        { when: "March 20", title: "Photography Contest", where: "Submission deadline" },
-        { when: "March 27", title: "Indonesian Movie Screening", where: "Weiser Hall, Room 110, 5 to 7 pm" },
-        { when: "March 28", title: "Angklung Musical Workshop", where: "International House Ann Arbor, 2 to 3 pm" },
-        { when: "April 2", title: "Batik Coloring Workshop", where: "Weiser Hall, 3 to 5 pm" },
-        { when: "April 3", title: "Festival Night", where: "Michigan League Ballroom, 5 to 8 pm" }
+        { when: "March 20", title: "Photography Contest", where: "Submission deadline", text: "Photos exploring cultural identity, traditions, and heritage within the U-M community." },
+        { when: "March 27", title: "Indonesian Movie Screening", where: "Weiser Hall, Room 110, 5 to 7 pm", text: "A screening of Gundala (2019), the superhero film directed by Joko Anwar and based on the classic Indonesian comic." },
+        { when: "March 28", title: "Angklung Musical Workshop", where: "International House Ann Arbor, 2 to 3 pm", text: "A hands-on introduction to angklung, the bamboo instrument from West Java." },
+        { when: "April 2", title: "Batik Coloring Workshop", where: "Weiser Hall, 3 to 5 pm", text: "Guests learned about wax-resist batik and made their own designs to take home." },
+        { when: "April 3", title: "Festival Night", where: "Michigan League Ballroom, 5 to 8 pm", text: "Gamelan, traditional dance, live music, games, and a shared Indonesian dinner." }
       ],
       quote: { text: "You are not only students; you are cultural ambassadors of Indonesia.", by: "Dwisuryo Indroyono Soesilo, Indonesian Ambassador to the U.S. and U-M alum" },
       photos: [
