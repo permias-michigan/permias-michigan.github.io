@@ -41,6 +41,8 @@ photos: [{ src: "assets/events/icf-2026/festival-night.jpg", caption: "Festival 
 
 **Use Google Forms:** paste links into `joinForm` and `alumniForm` in `js/content.js`.
 
+**After editing CSS or JS:** change `?v=` in the HTML files so browsers load the new version.
+
 ## Preview locally
 Open `index.html` in a browser.
 
