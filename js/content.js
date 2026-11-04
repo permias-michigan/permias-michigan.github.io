@@ -134,7 +134,7 @@ window.SITE = {
       links: []
     },
     {
-      id: "icf-2026", date: "2026-04-03", category: "Cultural event",
+      id: "icf-2026", date: "2026-04-03", cardDate: "20 March to 3 April 2026", category: "Cultural event",
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
       dateLabel: "March 20 to April 3, 2026",

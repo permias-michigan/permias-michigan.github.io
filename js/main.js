@@ -243,6 +243,12 @@
     });
     host.appendChild(grid);
   }
+  function longDate(iso) {
+    var p = iso.split("-");
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return Number(p[2]) + " " + months[Number(p[1]) - 1] + " " + p[0];
+  }
+
   /* Event cards */
   function card(e) {
     var li = el("li", "reveal");
@@ -252,7 +258,7 @@
       var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; if (e.cardPos) im.style.objectPosition = e.cardPos; a.appendChild(im);
     }
     if (e.tba) a.appendChild(el("span", "c-year", "Soon"));
-    else if (!e.dateUnconfirmed) a.appendChild(el("span", "c-year", e.date.slice(0, 4)));
+    else if (!e.dateUnconfirmed) a.appendChild(el("span", "c-year", e.cardDate || longDate(e.date)));
     if (e.category) a.appendChild(el("span", "c-tag", e.category));
     a.appendChild(el("strong", "", e.title));
     a.appendChild(el("span", "c-sum", e.summary));
