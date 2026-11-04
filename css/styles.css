@@ -215,12 +215,13 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .p-deg{margin-top:4px;color:var(--soft);font-size:.92rem;line-height:1.4}
 .p-go{margin-top:auto;padding-top:12px;font-weight:700;font-size:.92rem;color:var(--blue);transition:transform .3s var(--ease)}
 .person:hover .p-go{transform:translateX(6px)}
-.avatar{background-size:cover}
+.avatar{aspect-ratio:4/5;background-size:64px;background-position:center}
+.pf-card:has(.pf-photo[hidden]){grid-template-columns:1fr;min-height:0}
 .profile{width:min(900px,94vw);max-height:92vh;padding:0;border:0;border-radius:24px;overflow:auto;background:#fff;color:var(--ink)}
 .profile[open]{animation:fade .35s var(--ease)}
 .profile::backdrop{background:#0B1640e8}
 .pf-card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:460px}
-.pf-photo{width:100%;height:100%;object-fit:cover;background:var(--night)}
+.pf-photo{width:100%;height:100%;object-fit:cover;object-position:center top;background:var(--night)}
 .pf-right{display:flex;flex-direction:column;padding:34px}
 .pf-body{flex:1}
 .pf-in{animation:fade .4s var(--ease) both}
@@ -257,7 +258,7 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
   blockquote{padding:40px 26px}
   .people{grid-template-columns:repeat(2,1fr);gap:12px}
   .pf-card{grid-template-columns:1fr;min-height:0}
-  .pf-photo{height:230px;object-position:center 30%}
+  .pf-photo{height:340px;object-position:center 60%}
   .v-close{margin-left:0}
   .pf-right{padding:24px 20px}
   .page-head .wrap{padding-block:56px}

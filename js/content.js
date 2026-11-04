@@ -13,22 +13,66 @@ window.SITE = {
   // Add a section for each department, in the order you want them shown.
   departments: [
     {
-      name: "Board",
-      about: "Select anyone to read their profile.",
+      name: "Leadership",
+      about: "",
       people: [
-        { name: "Adli", photo: "assets/team/adli.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "", upFor: "Dancing, traveling, and running", food: "Sate" },
-        { name: "Beatrice", photo: "assets/team/beatrice.jpg", role: "Director, Creative Department", degree: "Master of Social Work, 2026", interests: "", upFor: "Playing games and traveling", food: "Bakmi Ayam" },
-        { name: "Bryan", photo: "assets/team/bryan.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "", upFor: "Solo traveling", food: "Ayam Geprek" },
-        { name: "Cita", photo: "assets/team/cita.jpg", role: "", degree: "M.S.E. in Construction Engineering & Management, 2027", interests: "", upFor: "Playing badminton", food: "Bakso, Sate Madura, and Siomay" },
-        { name: "Fian", photo: "assets/team/fian.jpg", role: "", degree: "M.Eng. in Automotive Engineering, 2026", interests: "Automotive powertrain and safety design, and the stock exchange", upFor: "Sports, e-Football, and hiking", food: "Seruit" },
-        { name: "Hemas", photo: "assets/team/hemas.jpg", role: "", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
-        { name: "Kayla", photo: "assets/team/kayla.jpg", role: "", degree: "B.S.E. in Chemical Engineering, 2029", interests: "Process optimization, machine learning, and metals", upFor: "Playing guitar and piano, taekwondo, and watching movies", food: "Rujak Cingur" },
-        { name: "Nathanael", photo: "assets/team/nathanael.jpg", role: "", degree: "Master of Public Health in Health Management and Policy, 2027", interests: "", upFor: "Playing tennis and the gym", food: "Nasi Padang" },
-        { name: "Raffi", photo: "assets/team/raffi.jpg", role: "", degree: "M.S.E. in Naval Architecture and Marine Engineering, 2027", interests: "Sustainable maritime energy", upFor: "Playing cards and board games", food: "Ayam Geprek" },
-        { name: "Sarah", photo: "assets/team/sarah.jpg", role: "", degree: "Master of Business Administration, 2027", interests: "", upFor: "Reading and journaling", food: "Pempek" },
-        { name: "Sophie", photo: "assets/team/sophie.jpg", role: "", degree: "B.S.E. in Industrial and Operations Engineering, 2029", interests: "", upFor: "Baking, swimming, and going on walks", food: "Nasi Timbel" },
-        { name: "Viola", photo: "assets/team/viola.jpg", role: "Public Relations Officer", degree: "B.S.E. in Computer Engineering, 2028", interests: "Software, data science, and machine learning/AI", upFor: "Learning new sports and instruments", food: "Babi Panggang Karo" },
-        { name: "Zulio", photo: "assets/team/zulio.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "Behavioral science and decision-making, mental health, poverty and inequality, and international development", upFor: "Reading, walking, and poetry and fiction writing", food: "Sate Ayam Madura" }
+        { name: "Raffi", photo: "assets/team/raffi.jpg", role: "President", degree: "M.S.E. in Naval Architecture and Marine Engineering, 2027", interests: "Sustainable maritime energy", upFor: "Playing cards and board games", food: "Ayam Geprek" },
+        { name: "Zulio", photo: "assets/team/zulio.jpg", role: "Vice President", degree: "Master of Public Policy, 2027", interests: "Behavioral science and decision-making, mental health, poverty and inequality, and international development", upFor: "Reading, walking, and poetry and fiction writing", food: "Sate Ayam Madura" }
+      ]
+    },
+    {
+      name: "Chief of Staff",
+      about: "",
+      people: [
+        { name: "Ilham", photo: "", role: "Chief of Staff" },
+        { name: "Sarah", photo: "assets/team/sarah.jpg", role: "Assistant Chief of Staff", degree: "Master of Business Administration, 2027", interests: "", upFor: "Reading and journaling", food: "Pempek" }
+      ]
+    },
+    {
+      name: "Treasury",
+      about: "",
+      people: [
+        { name: "Kayla", photo: "assets/team/kayla.jpg", role: "Treasurer", degree: "B.S.E. in Chemical Engineering, 2029", interests: "Process optimization, machine learning, and metals", upFor: "Playing guitar and piano, taekwondo, and watching movies", food: "Rujak Cingur" },
+        { name: "Bryan", photo: "assets/team/bryan.jpg", role: "Assistant Treasurer", degree: "Master of Public Policy, 2027", interests: "", upFor: "Solo traveling", food: "Ayam Geprek" }
+      ]
+    },
+    {
+      name: "Creative",
+      about: "Creative direction, visual identity, and publications.",
+      people: [
+        { name: "Beatrice", photo: "assets/team/beatrice.jpg", role: "Director, Creative Department", degree: "Master of Social Work, 2026", interests: "", upFor: "Playing games and traveling", food: "Bakmi Ayam" }
+      ]
+    },
+    {
+      name: "Procurement & Inventory",
+      about: "Venues, equipment, and event logistics.",
+      people: [
+        { name: "Puspita", photo: "", role: "Chief of Procurement & Inventory" },
+        { name: "Sophie", photo: "assets/team/sophie.jpg", role: "Assistant Chief of Procurement & Inventory", degree: "B.S.E. in Industrial and Operations Engineering, 2029", interests: "", upFor: "Baking, swimming, and going on walks", food: "Nasi Timbel" }
+      ]
+    },
+    {
+      name: "Internal Department",
+      about: "Member bonding, new student support, and professional development.",
+      people: [
+        { name: "Cita", photo: "assets/team/cita.jpg", role: "Director", degree: "M.S.E. in Construction Engineering & Management, 2027", interests: "", upFor: "Playing badminton", food: "Bakso, Sate Madura, and Siomay" },
+        { name: "Adli", photo: "assets/team/adli.jpg", role: "Co-Director", degree: "Master of Public Policy, 2027", interests: "", upFor: "Dancing, traveling, and running", food: "Sate" }
+      ]
+    },
+    {
+      name: "External Department",
+      about: "Public relations, alumni and partner relationships, and cultural events.",
+      people: [
+        { name: "Nathanael", photo: "assets/team/nathanael.jpg", role: "Director", degree: "Master of Public Health in Health Management and Policy, 2027", interests: "", upFor: "Playing tennis and the gym", food: "Nasi Padang" },
+        { name: "Hemas", photo: "assets/team/hemas.jpg", role: "Co-Director", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
+        { name: "Viola", photo: "assets/team/viola.jpg", role: "Co-Director", degree: "B.S.E. in Computer Engineering, 2028", interests: "Software, data science, and machine learning/AI", upFor: "Learning new sports and instruments", food: "Babi Panggang Karo" }
+      ]
+    },
+    {
+      name: "Board",
+      about: "",
+      people: [
+        { name: "Fian", photo: "assets/team/fian.jpg", role: "", degree: "M.Eng. in Automotive Engineering, 2026", interests: "Automotive powertrain and safety design, and the stock exchange", upFor: "Sports, e-Football, and hiking", food: "Seruit" }
       ]
     }
   ],
