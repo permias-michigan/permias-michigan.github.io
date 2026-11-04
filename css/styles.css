@@ -188,7 +188,6 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 @keyframes drift{from{transform:scale(1.1)}}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(95deg,#0B1640f2 10%,#0B164099 50%,#0B164000 85%)}
 .has-photo .batik{opacity:.28}
-.hero-photo{object-position:60% 60%}
 .wide .card img{height:340px;object-position:center 55%}
 .paths-sec{padding-top:96px}
 .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -333,6 +332,9 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .alumni-actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 .alumni-actions .res-card{min-height:190px}
 .alumni-actions .c-go{margin-top:auto;padding-top:14px}
+.hero .hero-photo{opacity:0;transform:scale(1.03);animation:none;transition:opacity 1.6s ease,transform 8s linear}
+.hero .hero-photo.on{opacity:1;transform:scale(1.09)}
+.two-up .card img{height:230px}
 @media (max-width:860px){
   .wrap{padding-inline:16px}
   .sec{padding-block:68px}

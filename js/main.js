@@ -268,6 +268,10 @@
   }
   function layoutCards(ul) {
     var items = [].filter.call(ul.children, function (li) { return !li.hidden; }), used = 0;
+    if (items.length > 1 && items.length % 2 === 0) {   /* even count: equal pairs */
+      ul.classList.add("two-up");
+      return;
+    }
     if (items.length === 3 && items[0].dataset.featured) {   /* one big card over two equal cards */
       ul.classList.add("two-up");
       items[0].classList.add("wide");
@@ -556,13 +560,26 @@
   [].forEach.call(document.querySelectorAll("[data-batik]"), batik);
   [].forEach.call(document.querySelectorAll(".spot"), spot);
 
-  /* Optional homepage photo */
+  /* Homepage photo slideshow */
   var heroBox = document.querySelector(".hero");
-  if (heroBox && S.heroPhoto) {
+  if (heroBox && S.heroPhotos && S.heroPhotos.length) {
     heroBox.classList.add("has-photo");
     heroBox.insertBefore(el("div", "hero-shade"), heroBox.firstChild);
-    var hp = el("img", "hero-photo"); hp.src = S.heroPhoto; hp.alt = "";
-    heroBox.insertBefore(hp, heroBox.firstChild);
+    var slides = S.heroPhotos.map(function (p, i) {
+      var im = el("img", "hero-photo" + (i ? "" : " on"));
+      im.alt = ""; im.src = p.src; if (p.pos) im.style.objectPosition = p.pos;
+      return im;
+    });
+    slides.slice().reverse().forEach(function (im) { heroBox.insertBefore(im, heroBox.firstChild); });
+    if (slides.length > 1 && !calm) {
+      var slideAt = 0;
+      setInterval(function () {
+        if (document.hidden) return;
+        slides[slideAt].classList.remove("on");
+        slideAt = (slideAt + 1) % slides.length;
+        slides[slideAt].classList.add("on");
+      }, 6000);
+    }
   }
 
   function countUp(n) {

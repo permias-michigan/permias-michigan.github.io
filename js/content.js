@@ -12,10 +12,13 @@ window.SITE = {
   // Format: { name: "Name", year: "2024", field: "Public Policy", role: "Analyst, Company", city: "Jakarta", linkedin: "https://..." }
   alumni: [],
 
-  // Optional big photo for the top of the homepage, such as:
-  // heroPhoto: "assets/events/icf-2026/festival-night.jpg"
-  // Leave it empty to show the live batik pattern instead.
-  heroPhoto: "assets/events/icf-2026/hero.jpg",
+  // Photos that fade in and out at the top of the homepage. Leave empty to show only the batik pattern.
+  heroPhotos: [
+    { src: "assets/events/icf-2026/hero.jpg", pos: "60% 60%" },
+    { src: "assets/events/welcome-party/group.jpg", pos: "50% 62%" },
+    { src: "assets/events/batik-day/setup.jpg", pos: "60% 50%" },
+    { src: "assets/events/icf-2026/ballroom.jpg", pos: "50% 50%" }
+  ],
 
   // Only list people who agreed to appear on a public website.
   // Add a section for each department, in the order you want them shown.
@@ -138,6 +141,21 @@ window.SITE = {
       photos: [
         { src: "assets/events/prof-dev/poster.jpg", caption: "Event poster" },
         { src: "assets/events/prof-dev/session.jpg", caption: "Talking careers at Munger Residence" }
+      ],
+      links: []
+    },
+    {
+      id: "welcome-party-2026", date: "2026-09-05", category: "Internal event", cardPos: "center 62%",
+      title: "Fall 2026 Welcome Party",
+      theme: "Welcome to Fall 2026, Wolverines!",
+      dateLabel: "September 5, 2026, 3 to 6 pm",
+      venue: "Nichols Arboretum Picnic Area",
+      summary: "A potluck picnic to welcome new and returning students after the first week of classes.",
+      overview: ["New and returning students took a break after the first week of classes for a potluck picnic in the Arb, with good food, new friendships, and stories about life at U-M and in Ann Arbor."],
+      highlights: ["Potluck picnic", "Open to new and current students", "Meeting fellow Indonesian students"],
+      photos: [
+        { src: "assets/events/welcome-party/group.jpg", caption: "Together at the Arb" },
+        { src: "assets/events/welcome-party/group-2.jpg", caption: "Welcoming a new semester" }
       ],
       links: []
     },
