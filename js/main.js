@@ -67,7 +67,7 @@
     else copy.textContent = "Press and hold the address to copy";
   });
   box.appendChild(copy);
-  if (S.instagram) box.appendChild(link("btn ghost", S.instagram, "Instagram"));
+  if (S.instagram) box.appendChild(link("btn ghost", S.instagram, "@indonesia.umich on Instagram"));
   if (S.linkedin) box.appendChild(link("btn ghost", S.linkedin, "LinkedIn"));
   cw.appendChild(box); c.appendChild(cw); foot.appendChild(c);
   var f = el("div", "wrap foot");

@@ -1,7 +1,7 @@
 // Edit this file to update the site. See README.md for examples.
 window.SITE = {
-  email: "rissaa@umich.edu", // Confirm this is the current org email.
-  instagram: "",             // Paste a full link, and the site shows it.
+  email: "michiganpermias@gmail.com",
+  instagram: "https://www.instagram.com/indonesia.umich/",
   linkedin: "",
 
   // Optional big photo for the top of the homepage, such as:
