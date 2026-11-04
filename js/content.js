@@ -38,6 +38,16 @@ window.SITE = {
       links: []
     },
     {
+      // Add the real date and details. The date below only sets its place in the list.
+      id: "fall-prof-dev", date: "2026-10-01", dateUnconfirmed: true,
+      title: "Fall Prof & Dev Program",
+      summary: "Details coming soon.",
+      overview: [],
+      highlights: [],
+      photos: [],
+      links: []
+    },
+    {
       id: "icf-2026", date: "2026-04-03", featured: true,
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
@@ -63,60 +73,6 @@ window.SITE = {
         { label: "Read about the Ambassador's visit", url: "https://prod.lsa.umich.edu/content/ii-directory/cseas/en/news-events/news/search-news/indonesian-ambassador-and-consulate-general-visit-michigan-for-i.html" },
         { label: "See the U-M event listing", url: "https://events.umich.edu/event/146309" }
       ]
-    },
-    {
-      id: "icn-2025", date: "2025-03-22",
-      title: "Indonesian Cultural Night 2025",
-      theme: "Rhythms of Archipelago: The Face of Indonesia",
-      dateLabel: "March 22, 2025",
-      summary: "Gamelan, traditional dances, a costume contest, and a play about RA Kartini.",
-      overview: ["This annual showcase combined music, dance, and theater, including a play about RA Kartini's advocacy for women's education and why it still matters today."],
-      highlights: ["Gamelan music", "Ratoe Jaroh, Sajojo, and Balinese dances", "A contest for audience members wearing their own traditional costumes"],
-      photos: [],
-      links: [{ label: "See the Arts at Michigan listing", url: "https://artsatmichigan.umich.edu/studentorgs/directory/view.php?id=519" }]
-    },
-    {
-      id: "icn-2024", date: "2024-04-13",
-      title: "Indonesian Cultural Night 2024",
-      dateLabel: "April 13, 2024",
-      summary: "A comedic folktale performance, trivia, traditional instruments, and free Indonesian food.",
-      overview: ["This cultural showcase introduced the U-M community to Indonesia through a humorous take on a traditional folktale."],
-      highlights: ["A comedic Indonesian folktale performance", "An interactive Indonesian trivia game", "Traditional instrument performance", "Free Indonesian food"],
-      photos: [],
-      links: [{ label: "See the Arts at Michigan listing", url: "https://artsatmichigan.umich.edu/studentorgs/directory/view.php?id=519" }]
-    },
-    {
-      id: "icn-2023", date: "2023-04-01",
-      title: "Indonesian Cultural Night 2023",
-      theme: "Majapahit",
-      dateLabel: "April 1, 2023",
-      summary: "Dances, plays, and traditional food. Tickets sold out within a week.",
-      overview: ["Inspired by the ancient Majapahit kingdom, this night celebrated the culture and traditions of the Indonesian archipelago. Tickets sold out within a week, and guests came from outside Ann Arbor."],
-      highlights: ["Dramas based on local folktales", "Instrumental performances", "Traditional dances from several regions", "Indonesian food at intermission"],
-      photos: [],
-      links: [{ label: "Read the event recap", url: "https://prod.lsa.umich.edu/content/ii-directory/islamicstudies/en/news-events/news/search-news/recap-icn-2023.html" }]
-    },
-    {
-      id: "icn-2018", date: "2018-03-09",
-      title: "Indonesian Cultural Night 2018",
-      theme: "Dari Sabang Sampai Merauke",
-      dateLabel: "March 9, 2018",
-      summary: "Student dramas, music, and dances celebrating Indonesia's multiculturalism.",
-      overview: ["Students of all arts backgrounds performed in a program celebrating Indonesia's multiculturalism, from Sabang to Merauke. Audience members were invited to dance and sing with the performers."],
-      highlights: ["Dramas based on local folktales", "Instrumental performances", "Dances from several regions", "Indonesian food after the show"],
-      photos: [],
-      links: [{ label: "See the U-M event listing", url: "https://events.umich.edu/event/50477" }]
-    },
-    {
-      id: "icn-2017", date: "2017-02-18",
-      title: "Indonesian Cultural Night 2017",
-      dateLabel: "February 2017",
-      venue: "Rackham Auditorium",
-      summary: "More than 200 people gathered for speakers, performances, and dance.",
-      overview: ["More than 200 students and community members came to Rackham Auditorium for a public celebration of Indonesian culture, with performers from several nationalities."],
-      highlights: ["Traditional dances and songs", "An orchestra performance", "Traditional food"],
-      photos: [],
-      links: [{ label: "See the U-M event listing", url: "https://events.umich.edu/event/38988" }]
     }
   ]
 };
