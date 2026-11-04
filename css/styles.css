@@ -278,19 +278,18 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .speakers h3{font-size:1.35rem;font-weight:800;letter-spacing:-.015em}
 .speakers p{color:var(--soft);margin:4px 0 10px}
 .speakers .c-go{display:inline-block;margin-top:0}
-.res-two{grid-template-columns:repeat(2,1fr);align-items:start}
-.res-two>li:has(.res-card:not(details)){align-self:stretch}
-.res-two>li:has(details[open]){grid-column:1/-1;order:2}
-.grocery{height:auto;display:block;padding:0}
-.grocery summary{display:flex;flex-direction:column;min-height:230px;padding:28px;cursor:pointer;list-style:none;border-radius:14px}
-.grocery summary::-webkit-details-marker{display:none}
-.grocery summary .c-go{margin-top:auto;padding-top:16px}
-.grocery[open] summary{min-height:0}
-.g-list{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:0 28px 28px;animation:fade .35s var(--ease)}
+.res-btn{width:100%;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.g-dialog{width:min(820px,94vw);max-height:90vh;padding:32px;border:0;border-radius:20px;background:#fff;color:var(--ink);overflow:auto}
+.g-dialog[open]{animation:fade .3s var(--ease)}
+.g-dialog::backdrop{background:#0B1640e8}
+.g-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.g-head h2{margin:0;font-size:2rem}
+.g-close{padding:8px 18px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);font:inherit;font-weight:500;cursor:pointer}
+.g-list{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .g-wide{grid-column:1/-1}
 .g-list h4{margin:0 0 10px;font-size:1rem}
 .g-list ul{display:grid;gap:8px}
-.g-stores{grid-template-columns:repeat(3,1fr)}
+.g-stores{grid-template-columns:repeat(2,1fr)}
 .g-list a{display:block;height:100%;padding:12px 14px;border-radius:10px;background:var(--paper);text-decoration:none;box-shadow:inset 0 0 0 1px var(--line)}
 .g-list a:hover{box-shadow:inset 0 0 0 1px var(--blue)}
 .g-list b{display:block;line-height:1.3}
@@ -316,10 +315,9 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
   .has-photo-panel{grid-template-columns:1fr;gap:18px}
   .panel-photo{height:240px}
   .speakers{grid-template-columns:1fr}
-  .res-grid,.res-two{grid-template-columns:1fr}
+  .res-grid{grid-template-columns:1fr}
+  .g-dialog{padding:22px 18px}
   .g-list,.g-stores{grid-template-columns:1fr}
-  .grocery summary{min-height:0}
-  .g-list{padding:0 20px 20px}
   .res-card{min-height:0}
   .res-title{margin-top:52px}
   .stats{grid-template-columns:1fr}

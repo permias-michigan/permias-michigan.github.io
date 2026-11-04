@@ -462,11 +462,13 @@
     }
   }
 
-  /* Grocery list label */
-  [].forEach.call(document.querySelectorAll("details.grocery"), function (d) {
-    var go = d.querySelector(".c-go");
-    d.addEventListener("toggle", function () { go.textContent = d.open ? "Hide the list" : "See the list"; });
-  });
+  /* Grocery popup */
+  if ($("grocery-open")) {
+    var gd = $("grocery-dialog");
+    $("grocery-open").addEventListener("click", function () { gd.showModal(); gd.scrollTop = 0; });
+    $("grocery-close").addEventListener("click", function () { gd.close(); });
+    gd.addEventListener("click", function (e) { if (e.target === gd) gd.close(); });
+  }
 
   /* Effects */
   [].forEach.call(document.querySelectorAll("[data-batik]"), batik);
