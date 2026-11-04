@@ -14,17 +14,19 @@ window.SITE = {
 
   // Photos that fade in and out at the top of the homepage. Leave empty to show only the batik pattern.
   heroPhotos: [
+    { src: "assets/hero/dancers.jpg", pos: "50% 45%" },
+    { src: "assets/hero/flag.jpg", pos: "50% 45%" },
     { src: "assets/events/icf-2026/hero.jpg", pos: "60% 60%" },
-    { src: "assets/hero/costume.jpg", pos: "60% 30%" },
-    { src: "assets/events/welcome-party/group.jpg", pos: "50% 62%" },
-    { src: "assets/hero/stage.jpg", pos: "60% 60%" },
-    { src: "assets/events/batik-day/setup.jpg", pos: "60% 50%" },
+    { src: "assets/hero/picnic.jpg", pos: "60% 50%" },
+    { src: "assets/hero/band.jpg", pos: "60% 55%" },
+    { src: "assets/hero/workshop.jpg", pos: "60% 60%" },
     { src: "assets/hero/guests.jpg", pos: "60% 30%" },
-    { src: "assets/hero/dance.jpg", pos: "60% 75%" },
-    { src: "assets/events/batik-day/display.jpg", pos: "50% 65%" },
-    { src: "assets/hero/registration.jpg", pos: "50% 60%" },
-    { src: "assets/events/batik-day/team.jpg", pos: "50% 75%" },
-    { src: "assets/hero/ballroom.jpg", pos: "60% 55%" }
+    { src: "assets/hero/cast.jpg", pos: "60% 40%" },
+    { src: "assets/hero/kawung.jpg", pos: "50% 60%" },
+    { src: "assets/hero/reception.jpg", pos: "60% 60%" },
+    { src: "assets/hero/friends.jpg", pos: "60% 35%" },
+    { src: "assets/hero/canting.jpg", pos: "60% 50%" },
+    { src: "assets/hero/speaker.jpg", pos: "60% 35%" }
   ],
 
   // Only list people who agreed to appear on a public website.
