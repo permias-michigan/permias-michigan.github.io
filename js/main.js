@@ -290,8 +290,6 @@
   /* Pages */
   if (page === "home") {
     renderUpcoming($("home-upcoming"), true);
-    var fest = S.events.filter(function (e) { return e.id === "icf-2026"; })[0];
-    if (fest) program($("home-program"), fest.schedule);
   }
   if (page === "events") {
     renderUpcoming($("upcoming"));
