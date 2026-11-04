@@ -402,6 +402,12 @@
   }
   function renderEvent(e) {
     document.title = e.title + " | PERMIAS Michigan";
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && e.summary) metaDesc.setAttribute("content", e.summary);
+    var canon = document.createElement("link");
+    canon.rel = "canonical";
+    canon.href = "https://permias-michigan.github.io/" + eventUrl(e);
+    document.head.appendChild(canon);
     $("event-title").textContent = e.title;
     if (e.theme) $("event-theme").textContent = e.theme;
     [e.category, e.dateLabel, e.venue].forEach(function (x) { if (x) $("event-facts").appendChild(el("li", "", x)); });

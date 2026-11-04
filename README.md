@@ -27,6 +27,8 @@ Nearly everything is in `js/content.js`. The home and about text is in `index.ht
 }
 ```
 
+**Help Google find a new event or page:** add its link to `sitemap.xml`.
+
 **Add photos:** resize them to about 1600 px wide, save them in `assets/events/<event-id>/`, then list them on the event. They appear on its event page.
 
 ```js
