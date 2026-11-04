@@ -456,6 +456,12 @@
     }
   }
 
+  /* Grocery list label */
+  [].forEach.call(document.querySelectorAll("details.grocery"), function (d) {
+    var go = d.querySelector(".c-go");
+    d.addEventListener("toggle", function () { go.textContent = d.open ? "Hide the list" : "See the list"; });
+  });
+
   /* Effects */
   [].forEach.call(document.querySelectorAll("[data-batik]"), batik);
   [].forEach.call(document.querySelectorAll(".spot"), spot);
