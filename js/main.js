@@ -253,7 +253,7 @@
   function card(e) {
     var li = el("li", "reveal");
         if (e.featured) li.dataset.featured = "1";
-    var a = link("card spot", eventUrl(e));
+    var a = link("card spot" + (e.accent ? " accent" : ""), eventUrl(e));
     if (e.photos && e.photos[0]) {
       var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; if (e.cardPos) im.style.objectPosition = e.cardPos; a.appendChild(im);
     }
@@ -573,11 +573,12 @@
     heroBox.insertBefore(el("div", "hero-shade"), heroBox.firstChild);
     var slides = S.heroPhotos.map(function (p, i) {
       var im = el("img", "hero-photo" + (i ? "" : " on"));
-      im.alt = ""; im.src = p.src; if (p.pos) im.style.objectPosition = p.pos;
+      im.alt = ""; if (!i) im.src = p.src; if (p.pos) im.style.objectPosition = p.pos;
       return im;
     });
     slides.slice().reverse().forEach(function (im) { heroBox.insertBefore(im, heroBox.firstChild); });
     if (slides.length > 1 && !calm) {
+      addEventListener("load", function () { slides.forEach(function (im, i) { im.src = S.heroPhotos[i].src; }); });
       var slideAt = 0;
       setInterval(function () {
         if (document.hidden) return;

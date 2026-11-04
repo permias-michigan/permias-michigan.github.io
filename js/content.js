@@ -15,9 +15,16 @@ window.SITE = {
   // Photos that fade in and out at the top of the homepage. Leave empty to show only the batik pattern.
   heroPhotos: [
     { src: "assets/events/icf-2026/hero.jpg", pos: "60% 60%" },
+    { src: "assets/hero/costume.jpg", pos: "60% 30%" },
     { src: "assets/events/welcome-party/group.jpg", pos: "50% 62%" },
+    { src: "assets/hero/stage.jpg", pos: "60% 60%" },
     { src: "assets/events/batik-day/setup.jpg", pos: "60% 50%" },
-    { src: "assets/events/icf-2026/ballroom.jpg", pos: "50% 50%" }
+    { src: "assets/hero/guests.jpg", pos: "60% 30%" },
+    { src: "assets/hero/dance.jpg", pos: "60% 75%" },
+    { src: "assets/events/batik-day/display.jpg", pos: "50% 65%" },
+    { src: "assets/hero/registration.jpg", pos: "50% 60%" },
+    { src: "assets/events/batik-day/team.jpg", pos: "50% 75%" },
+    { src: "assets/hero/ballroom.jpg", pos: "60% 55%" }
   ],
 
   // Only list people who agreed to appear on a public website.
@@ -160,7 +167,7 @@ window.SITE = {
       links: []
     },
     {
-      id: "icf-2026", date: "2026-04-03", cardDate: "20 March to 3 April 2026", category: "Cultural event",
+      id: "icf-2026", date: "2026-04-03", accent: true, cardDate: "20 March to 3 April 2026", category: "Cultural event",
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
       dateLabel: "March 20 to April 3, 2026",
