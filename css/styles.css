@@ -247,6 +247,9 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .res-card p{color:var(--soft);font-size:.98rem}
 .res-card .c-go{margin-top:auto;padding-top:16px}
 .res-card:hover .c-go{transform:translateX(6px)}
+.ev-copy{max-width:62ch;margin-bottom:24px;color:var(--soft)}
+.has-photo-panel{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.panel-photo{width:100%;height:320px;object-fit:cover;border-radius:16px;animation:fade .5s var(--ease) both}
 @media (max-width:860px){
   .wrap{padding-inline:16px}
   .sec{padding-block:68px}
@@ -260,6 +263,8 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
   .hero-in{min-height:0;padding-block:72px 84px}
   .intro{grid-template-columns:1fr;gap:18px;margin-bottom:36px}
   .cards,.two-up{grid-template-columns:1fr}
+  .has-photo-panel{grid-template-columns:1fr;gap:18px}
+  .panel-photo{height:240px}
   .res-grid{grid-template-columns:1fr}
   .res-card{min-height:0}
   .res-title{margin-top:52px}

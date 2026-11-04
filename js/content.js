@@ -47,7 +47,7 @@ window.SITE = {
       name: "Procurement & Inventory",
       about: "Venues, equipment, and event logistics.",
       people: [
-        { name: "Puspita", photo: "", role: "Chief of Procurement & Inventory" },
+        { name: "Puspita", photo: "assets/team/puspita.jpg", role: "Chief of Procurement & Inventory", degree: "M.S. in Sustainability and Environment (Geospatial Data Sciences), 2027", interests: "Geospatial applications in urban sustainability, environmental justice, and climate resilience", upFor: "Pottery, swimming, reading depressing novels, and collecting vinyls", food: "Tahu and Tempe" },
         { name: "Sophie", photo: "assets/team/sophie.jpg", role: "Assistant Chief of Procurement & Inventory", degree: "B.S.E. in Industrial and Operations Engineering, 2029", interests: "", upFor: "Baking, swimming, and going on walks", food: "Nasi Timbel" }
       ]
     },
@@ -84,21 +84,42 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
+      // Replace date with YYYY-MM-DD and dateLabel once confirmed, then remove tba.
+      id: "natw", date: "9999-12-31", tba: true,
+      title: "Night Around the World (NATW)",
+      dateLabel: "Date coming soon",
+      summary: "Visit the PERMIAS batik booth at Night Around the World.",
+      overview: ["PERMIAS will open a batik booth at Night Around the World. Come say hello and experience batik with us."],
+      highlights: ["PERMIAS batik booth"],
+      photos: [],
+      links: []
+    },
+    {
       id: "batik-day", date: "2026-10-22", featured: true,
       title: "Batik Day",
       theme: "Batik Experience: Wear the Story of Indonesia",
       dateLabel: "October 22, 2026, 12 to 2 pm",
       venue: "The Diag",
       summary: "Batik on the Diag, with a pattern display, try-ons, and a photo booth.",
-      overview: ["We brought batik to the Diag so students could explore its history and regional patterns, try it on, and take a photo."],
-      highlights: ["Batik fabric samples and a map of Indonesia", "Batik try-ons", "Batik-themed photo booth", "Rewards for joining in"],
+      overview: [
+        "We brought batik to the Diag so the U-M community could learn its stories, try it on, and take a piece of Indonesia home in a photo.",
+        "Batik is more than a fabric. Its patterns carry the history and identity of communities across Indonesia, and UNESCO has recognized Indonesian batik as intangible cultural heritage since 2009."
+      ],
+      highlights: ["Open to everyone at U-M", "Batik fabric samples", "Map of batik across Indonesia", "Try-ons", "Photo booth", "Rewards for joining in"],
+      scheduleTitle: "How it worked",
+      scheduleStart: 0,
+      schedule: [
+        { when: "Step 1", title: "Discover batik", where: "At the display table", text: "Fabric samples, pattern photos, and a batik map of Indonesia introduced batik's history and regional diversity.", photo: "assets/events/batik-day/map.jpg" },
+        { when: "Step 2", title: "Experience batik", where: "At the clothing rack", text: "Visitors could examine the fabrics, hear about each piece from our volunteers, and try on batik clothing.", photo: "assets/events/batik-day/display.jpg" },
+        { when: "Step 3", title: "Capture the moment", where: "At the photo booth", text: "Guests took photos in batik with our custom frame and received a small reward for joining in.", photo: "assets/events/batik-day/setup.jpg" }
+      ],
       photos: [
         { src: "assets/events/batik-day/setup.jpg", caption: "Setting up on the Diag" },
         { src: "assets/events/batik-day/display.jpg", caption: "Learning about batik at the display table" },
         { src: "assets/events/batik-day/map.jpg", caption: "Batik throughout Indonesia" },
         { src: "assets/events/batik-day/team.jpg", caption: "The team on the Diag" }
       ],
-      links: []
+      links: [{ label: "Explore the interactive batik map", url: "https://www.iwarebatik.org/interactive-map/?lang=id" }]
     },
     {
       // Add the real date and details. The date below only sets its place in the list.

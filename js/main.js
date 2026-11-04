@@ -156,7 +156,7 @@
   }
 
   /* Interactive program timeline */
-  function program(host, items) {
+  function program(host, items, start) {
     var wrap = el("div", "stepper");
     var tabs = el("div", "steps"); tabs.setAttribute("role", "tablist"); tabs.setAttribute("aria-label", "Festival program");
     var panel = el("div", "panel"); panel.setAttribute("role", "tabpanel"); panel.tabIndex = 0;
@@ -191,10 +191,12 @@
       inner.appendChild(el("p", "where", items[i].where));
       if (items[i].text) inner.appendChild(el("p", "", items[i].text));
       panel.appendChild(inner);
+      panel.classList.toggle("has-photo-panel", !!items[i].photo);
+      if (items[i].photo) { var ph = el("img", "panel-photo"); ph.src = items[i].photo; ph.alt = items[i].title; panel.appendChild(ph); }
       if (btns[i].scrollIntoView && tabs.scrollWidth > tabs.clientWidth) tabs.scrollLeft = btns[i].offsetLeft - 16;
     }
     wrap.appendChild(tabs); wrap.appendChild(panel); host.appendChild(wrap);
-    pick(items.length - 1);
+    pick(start === undefined ? items.length - 1 : start);
   }
 
   /* Photo viewer */
@@ -249,7 +251,8 @@
     if (e.photos && e.photos[0]) {
       var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; a.appendChild(im);
     }
-    if (!e.dateUnconfirmed) a.appendChild(el("span", "c-year", e.date.slice(0, 4)));
+    if (e.tba) a.appendChild(el("span", "c-year", "Soon"));
+    else if (!e.dateUnconfirmed) a.appendChild(el("span", "c-year", e.date.slice(0, 4)));
     a.appendChild(el("strong", "", e.title));
     a.appendChild(el("span", "c-sum", e.summary));
     a.appendChild(el("span", "c-go", "View event"));
@@ -311,7 +314,7 @@
     if (e.theme) $("event-theme").textContent = e.theme;
     [e.dateLabel, e.venue].forEach(function (x) { if (x) $("event-facts").appendChild(el("li", "", x)); });
     var body = $("event-body");
-    (e.overview || []).forEach(function (t) { body.appendChild(el("p", "lead reveal", t)); });
+    (e.overview || []).forEach(function (t, n2) { body.appendChild(el("p", n2 ? "ev-copy reveal" : "lead reveal", t)); });
     if (e.signup && e.date >= today) body.appendChild(link("btn blue", e.signup, "Sign up"));
     if (e.highlights && e.highlights.length) {
       var hl = el("ul", "pills reveal");
@@ -325,10 +328,10 @@
       body.appendChild(q);
     }
     if (e.schedule) {
-      body.appendChild(el("h2", "spaced reveal", "Program"));
+      body.appendChild(el("h2", "spaced reveal", e.scheduleTitle || "Program"));
       var pr = el("div", "light reveal"); pr.id = "event-program";
       body.appendChild(pr);
-      program(pr, e.schedule);
+      program(pr, e.schedule, e.scheduleStart);
     }
     if (e.photos && e.photos.length) {
       body.appendChild(el("h2", "spaced reveal", "Photos"));
