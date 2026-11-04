@@ -78,6 +78,9 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.05;font-weight:800;letter-sp
 .festival{background:var(--night);color:#fff}
 .fest-head{margin-bottom:44px}
 .fest-head h2{margin-bottom:10px}
+.tag{display:inline-block;margin-bottom:16px;padding:5px 14px;border-radius:99px;box-shadow:inset 0 0 0 1px #ffffff55;color:#fff!important;font-weight:500!important;font-size:.9rem!important}
+.fest-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.fest-actions .btn{margin:0}
 .fest-head p{color:var(--gold);font-weight:700;font-size:1.12rem}
 .festival .btn{margin-top:36px}
 .stepper{--on:var(--gold);--muted:#ffffff2e;--dim:#BCC8EE;--box:#ffffff0d}
@@ -188,21 +191,15 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .hero-shade{position:absolute;inset:0;background:linear-gradient(95deg,#0B1640f2 15%,#0B164099 55%,#0B164040)}
 .has-photo .batik{opacity:.5}
 .paths-sec{padding-top:96px}
-.paths{display:flex;gap:16px}
-.path{position:relative;isolation:isolate;overflow:hidden;flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;min-height:440px;padding:34px;border-radius:28px;text-decoration:none;transition:flex-grow .55s var(--ease),box-shadow .35s,opacity .75s var(--ease) var(--d,0ms),transform .75s var(--ease) var(--d,0ms)}
-.path::before{content:"";position:absolute;z-index:-1;inset:0;background:var(--pat) center top/84px;opacity:.6;-webkit-mask-image:linear-gradient(#000 12%,transparent 52%);mask-image:linear-gradient(#000 12%,transparent 52%);transition:background-size .9s var(--ease),opacity .4s}
-.path:hover,.path:focus-visible{flex-grow:1.45;box-shadow:0 26px 54px #0b164038}
-.path:hover::before,.path:focus-visible::before{background-size:112px;opacity:1}
-.path h3{font-size:clamp(1.8rem,2.8vw,2.5rem);line-height:1.05;font-weight:800;letter-spacing:-.025em;margin-bottom:12px}
-.path h3{min-height:2.1em;display:flex;align-items:flex-end}
-.path p{min-height:5em;max-width:34ch;font-size:1rem}
-.go{margin-top:18px;font-weight:700;transition:transform .35s var(--ease)}
-.path:hover .go{transform:translateX(8px)}
-.p-navy{--pat:var(--batik);background:var(--night);color:#fff}
-.p-blue{--pat:var(--batik);background:var(--blue);color:#fff}
-.p-gold{--pat:url("../assets/kawung-blue.svg");background:var(--gold);color:var(--ink)}
-.p-navy .go{color:var(--gold)}
-.p-blue .go{color:#FFD76E}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.path{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1;display:flex;flex-direction:column;padding:32px;border-radius:14px;background:var(--night);color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1px #ffffff14;transition:background .35s,box-shadow .35s,translate .35s var(--ease),opacity .75s var(--ease) var(--d,0ms),transform .75s var(--ease) var(--d,0ms)}
+.path::before{content:"";position:absolute;z-index:-1;inset:0;background:var(--batik) right bottom/76px;opacity:.55;-webkit-mask-image:radial-gradient(75% 75% at 100% 100%,#000,transparent);mask-image:radial-gradient(75% 75% at 100% 100%,#000,transparent);transition:opacity .4s,background-size .8s var(--ease)}
+.path:hover,.path:focus-visible{background:var(--navy);translate:0 -6px;box-shadow:inset 0 0 0 1px var(--gold),0 22px 44px #0b164033}
+.path:hover::before,.path:focus-visible::before{opacity:1;background-size:92px}
+.path h3{font-size:clamp(1.7rem,2.6vw,2.2rem);line-height:1.08;font-weight:800;letter-spacing:-.025em;margin-bottom:12px}
+.path p{max-width:28ch;font-size:1rem;color:#D7DFFA}
+.go{margin-top:auto;font-weight:700;color:var(--gold);transition:transform .35s var(--ease)}
+.path:hover .go{transform:translateX(6px)}
 .team-filters{margin-bottom:56px}
 .dept+.dept{margin-top:80px}
 .dept-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;margin-bottom:26px}
@@ -223,11 +220,8 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
   .hero-in{min-height:0;padding-block:72px 84px}
   .intro{grid-template-columns:1fr;gap:18px;margin-bottom:36px}
   .cards{grid-template-columns:1fr}
-  .paths{flex-direction:column}
-  .path{min-height:320px;padding:28px 24px;flex:none}
-  .path p{min-height:0}
-  .path h3{min-height:0}
-  .path::before{-webkit-mask-image:linear-gradient(#000,transparent 42%);mask-image:linear-gradient(#000,transparent 42%)}
+  .paths{grid-template-columns:1fr}
+  .path{aspect-ratio:auto;min-height:250px;padding:26px 24px}
   .paths-sec{padding-top:68px}
   .join-row{padding:30px 24px;margin-top:56px}
   .dept+.dept{margin-top:60px}

@@ -28,6 +28,16 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
+      // Add the real date and details. The date below only sets its place in the list.
+      id: "batik-day", date: "2026-10-02", dateUnconfirmed: true,
+      title: "Batik Day",
+      summary: "A community celebration of batik, a traditional Indonesian art.",
+      overview: ["A community celebration of batik, a traditional Indonesian art."],
+      highlights: [],
+      photos: [],
+      links: []
+    },
+    {
       id: "icf-2026", date: "2026-04-03", featured: true,
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",

@@ -12,8 +12,8 @@
 
   var d = new Date();
   var today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
-  var upcoming = S.events.filter(function (e) { return e.date >= today; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
-  var past = S.events.filter(function (e) { return e.date < today; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+  var upcoming = S.events.filter(function (e) { return e.date >= today && !e.dateUnconfirmed; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+  var past = S.events.filter(function (e) { return e.date < today || e.dateUnconfirmed; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
 
   var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -247,13 +247,13 @@
   /* Event cards */
   function card(e) {
     var li = el("li", "reveal");
-    li.dataset.kind = /festival/i.test(e.title) ? "Festivals" : "Cultural nights";
+    li.dataset.kind = /festival/i.test(e.title) ? "Festivals" : /cultural night/i.test(e.title) ? "Cultural nights" : "Community";
     if (e.featured) li.dataset.featured = "1";
     var a = link("card spot", eventUrl(e));
     if (e.photos && e.photos[0]) {
       var im = el("img"); im.src = e.photos[0].src; im.alt = ""; im.loading = "lazy"; a.appendChild(im);
     }
-    a.appendChild(el("span", "c-year", e.date.slice(0, 4)));
+    a.appendChild(el("span", "c-year", e.dateUnconfirmed ? "Past" : e.date.slice(0, 4)));
     a.appendChild(el("strong", "", e.title));
     a.appendChild(el("span", "c-sum", e.summary));
     a.appendChild(el("span", "c-go", "View event"));
@@ -298,7 +298,7 @@
     past.forEach(function (e) { pastList.appendChild(card(e)); });
     layoutCards(pastList);
     var fbox = $("filters");
-    ["All", "Festivals", "Cultural nights"].forEach(function (name) {
+    ["All", "Festivals", "Cultural nights", "Community"].forEach(function (name) {
       var b = el("button", "chip", name);
       b.type = "button"; b.setAttribute("aria-pressed", name === "All");
       b.addEventListener("click", function () {
