@@ -84,13 +84,20 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
-      // Add the real date and details. The date below only sets its place in the list.
-      id: "batik-day", date: "2026-10-02", dateUnconfirmed: true,
+      id: "batik-day", date: "2026-10-22", featured: true,
       title: "Batik Day",
-      summary: "A community celebration of batik, a traditional Indonesian art.",
-      overview: ["A community celebration of batik, a traditional Indonesian art."],
-      highlights: [],
-      photos: [],
+      theme: "Batik Experience: Wear the Story of Indonesia",
+      dateLabel: "October 22, 2026, 12 to 2 pm",
+      venue: "The Diag",
+      summary: "Batik on the Diag, with a pattern display, try-ons, and a photo booth.",
+      overview: ["We brought batik to the Diag so students could explore its history and regional patterns, try it on, and take a photo."],
+      highlights: ["Batik fabric samples and a map of Indonesia", "Batik try-ons", "Batik-themed photo booth", "Rewards for joining in"],
+      photos: [
+        { src: "assets/events/batik-day/setup.jpg", caption: "Setting up on the Diag" },
+        { src: "assets/events/batik-day/display.jpg", caption: "Learning about batik at the display table" },
+        { src: "assets/events/batik-day/map.jpg", caption: "Batik throughout Indonesia" },
+        { src: "assets/events/batik-day/team.jpg", caption: "The team on the Diag" }
+      ],
       links: []
     },
     {
@@ -104,7 +111,7 @@ window.SITE = {
       links: []
     },
     {
-      id: "icf-2026", date: "2026-04-03", featured: true,
+      id: "icf-2026", date: "2026-04-03",
       title: "Indonesian Cultural Festival 2026",
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
       dateLabel: "March 20 to April 3, 2026",
