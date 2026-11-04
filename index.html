@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PERMIAS Michigan | Indonesian Students Association at Umich</title>
+<meta name="description" content="The Indonesian Students Association at the University of Michigan: a community for Indonesian students and families in Ann Arbor and Ypsilanti.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a href="#top"><img class="logo" src="assets/logo.png" alt="Indonesian Students Association at Umich"></a>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav">
+      <a href="#about">About us</a>
+      <a href="#events">Past events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section id="top" class="hero">
+  <svg class="kawung" aria-hidden="true" width="100%" height="100%">
+    <defs><pattern id="k" width="96" height="96" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#E0B04A" stroke-width="1.6">
+        <path d="M0 0Q41 7 48 48Q7 41 0 0Z"/><path d="M96 0Q55 7 48 48Q89 41 96 0Z"/>
+        <path d="M0 96Q41 89 48 48Q7 55 0 96Z"/><path d="M96 96Q55 89 48 48Q89 55 96 96Z"/>
+      </g>
+      <g fill="#E0B04A"><circle cx="48" cy="48" r="3.5"/><circle cx="0" cy="0" r="3.5"/><circle cx="96" cy="0" r="3.5"/><circle cx="0" cy="96" r="3.5"/><circle cx="96" cy="96" r="3.5"/></g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#k)"/>
+  </svg>
+  <div class="wrap hero-in">
+    <h1>A home for Indonesian students at Michigan.</h1>
+    <p>PERMIAS Michigan, the Indonesian Students Association at U-M, supports Indonesian students and families in Ann Arbor and Ypsilanti and shares Indonesian culture with campus.</p>
+    <div class="actions">
+      <a class="btn gold" href="#events">See past events</a>
+      <a class="btn line" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="wrap sec">
+  <h2>About us</h2>
+  <div class="split">
+    <div class="prose">
+      <p class="lead">We help Indonesian students feel at home in Michigan, and we invite everyone else to experience Indonesia with us.</p>
+      <p>PERMIAS stands for Persatuan Mahasiswa Indonesia Seluruh Amerika Serikat, the name for Indonesian student associations across the United States. Our chapter is also part of the Southeast Asian Network, which connects Southeast Asian student organizations at U-M.</p>
+    </div>
+    <div class="year-round">
+      <h3>Throughout the year</h3>
+      <dl>
+        <dt>Settling in</dt><dd>Thanksgiving dinner, a factory outlet trip, and graduation night</dd>
+        <dt>Celebrating together</dt><dd>Batik Day, Indonesian Independence Day, and Chinese New Year</dd>
+        <dt>Sharing our culture</dt><dd>Our annual cultural showcase for the U-M community</dd>
+      </dl>
+    </div>
+  </div>
+  <h3 class="sub">Our team</h3>
+  <ul id="team" class="people"></ul>
+  <h3 class="sub">Our members</h3>
+  <ul id="members" class="people"></ul>
+  <p id="members-empty" class="empty" hidden>Member profiles are being added. If you're a member and want to be listed, <a href="#contact">contact us</a>.</p>
+</section>
+
+<section id="events" class="events">
+  <div class="wrap sec">
+    <h2>Past events</h2>
+    <article class="icf">
+      <div class="icf-head">
+        <h3>Indonesian Cultural Festival 2026</h3>
+        <p class="theme">Islands of Rhythm, Oceans of Stories: Experience Indonesia</p>
+        <p>ICF brought a month of photography, film, music, batik, and celebration to campus. Festival Night featured U-M's Gamelan Kyai Telaga Madu, traditional dances by our members, a live band, and Indonesian food including beef rendang.</p>
+        <blockquote>“You are not only students; you are cultural ambassadors of Indonesia.”
+          <cite>Dwisuryo Indroyono Soesilo, Indonesian Ambassador to the United States and U-M alumnus, at ICF 2026</cite></blockquote>
+      </div>
+      <ol class="program">
+        <li><time>March 20</time><div><b>Photography Contest</b><span>Submission deadline</span></div></li>
+        <li><time>March 27</time><div><b>Indonesian Movie Screening</b><span>Weiser Hall, Room 110</span></div></li>
+        <li><time>March 28</time><div><b>Angklung Musical Workshop</b><span>International House Ann Arbor</span></div></li>
+        <li><time>April 2</time><div><b>Batik Coloring Workshop</b><span>Weiser Hall, Level 1</span></div></li>
+        <li><time>April 3</time><div><b>Festival Night</b><span>Michigan League Ballroom</span></div></li>
+      </ol>
+    </article>
+    <h3 class="sub">Earlier years</h3>
+    <ol id="timeline" class="timeline"></ol>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap sec split">
+    <div>
+      <h2>Contact</h2>
+      <p class="lead">Want to join, partner with us, or reconnect as an alum? We'd love to hear from you.</p>
+    </div>
+    <ul id="contact-links" class="contact-links"></ul>
+  </div>
+</section>
+</main>
+
+<footer class="wrap foot">
+  <p>© <span id="year"></span> Indonesian Students Association at Umich. Ann Arbor, Michigan.</p>
+</footer>
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
