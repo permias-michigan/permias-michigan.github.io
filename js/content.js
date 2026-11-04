@@ -24,7 +24,7 @@ window.SITE = {
       name: "Chief of Staff",
       about: "",
       people: [
-        { name: "Ilham", photo: "", role: "Chief of Staff" },
+        { name: "Fian", photo: "assets/team/fian.jpg", role: "Chief of Staff", degree: "M.Eng. in Automotive Engineering, 2026", interests: "Automotive powertrain and safety design, and the stock exchange", upFor: "Sports, e-Football, and hiking", food: "Seruit" },
         { name: "Sarah", photo: "assets/team/sarah.jpg", role: "Assistant Chief of Staff", degree: "Master of Business Administration, 2027", interests: "", upFor: "Reading and journaling", food: "Pempek" }
       ]
     },
@@ -66,13 +66,6 @@ window.SITE = {
         { name: "Nathanael", photo: "assets/team/nathanael.jpg", role: "Director", degree: "Master of Public Health in Health Management and Policy, 2027", interests: "", upFor: "Playing tennis and the gym", food: "Nasi Padang" },
         { name: "Hemas", photo: "assets/team/hemas.jpg", role: "Co-Director", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
         { name: "Viola", photo: "assets/team/viola.jpg", role: "Co-Director", degree: "B.S.E. in Computer Engineering, 2028", interests: "Software, data science, and machine learning/AI", upFor: "Learning new sports and instruments", food: "Babi Panggang Karo" }
-      ]
-    },
-    {
-      name: "Board",
-      about: "",
-      people: [
-        { name: "Fian", photo: "assets/team/fian.jpg", role: "", degree: "M.Eng. in Automotive Engineering, 2026", interests: "Automotive powertrain and safety design, and the stock exchange", upFor: "Sports, e-Football, and hiking", food: "Seruit" }
       ]
     }
   ],
