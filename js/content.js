@@ -11,6 +11,7 @@ window.SITE = {
 
   // Only list people who agreed to appear on a public website.
   // Add a section for each department, in the order you want them shown.
+  // Optional profile fields: pronouns, bio, undergrad, clubs: ["Club name"], linkedin.
   departments: [
     {
       name: "Leadership",
@@ -64,7 +65,7 @@ window.SITE = {
       about: "Public relations, alumni and partner relationships, and cultural events.",
       people: [
         { name: "Nathanael", photo: "assets/team/nathanael.jpg", role: "Director", degree: "Master of Public Health in Health Management and Policy, 2027", interests: "", upFor: "Playing tennis and the gym", food: "Nasi Padang" },
-        { name: "Hemas", photo: "assets/team/hemas.jpg", role: "Co-Director", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
+        { name: "Hemas", photo: "assets/team/hemas.jpg", pronouns: "She/Her/Hers", bio: "Born and raised in Indonesia, Hemas earned a degree in Agribusiness and spent eight years at Indonesia's largest bank, working across operations transformation, customer experience, performance, and strategy.", undergrad: "Sebelas Maret University", clubs: ["General Management Club", "Human Capital Club", "Michigan Business Women - MBA", "Asian American Business Association", "Southeast Asia Business Association", "Detroit Initiative at Ross"], role: "Co-Director", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
         { name: "Viola", photo: "assets/team/viola.jpg", role: "Co-Director", degree: "B.S.E. in Computer Engineering, 2028", interests: "Software, data science, and machine learning/AI", upFor: "Learning new sports and instruments", food: "Babi Panggang Karo" }
       ]
     }

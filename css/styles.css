@@ -216,7 +216,7 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .p-go{margin-top:auto;padding-top:12px;font-weight:700;font-size:.92rem;color:var(--blue);transition:transform .3s var(--ease)}
 .person:hover .p-go{transform:translateX(6px)}
 .avatar{aspect-ratio:4/5;background-size:64px;background-position:center}
-.pf-card:has(.pf-photo[hidden]){grid-template-columns:1fr;min-height:0}
+.pf-card:has(.pf-photo[hidden]){grid-template-columns:1fr;min-height:0;height:auto}
 .profile{width:min(900px,94vw);max-height:92vh;padding:0;border:0;border-radius:24px;overflow:auto;background:#fff;color:var(--ink)}
 .profile[open]{animation:fade .35s var(--ease)}
 .profile::backdrop{background:#0B1640e8}
@@ -257,6 +257,16 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
 .dept-head h2{font-size:1.65rem;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
 .dept-head p{font-size:.95rem;line-height:1.45}
 .dept .people{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.profile{overflow:hidden}
+.pf-card{height:min(620px,92vh)}
+.pf-photo{min-height:0}
+.pf-right{min-height:0}
+.pf-body{min-height:0;overflow:auto;padding-right:8px}
+.pf-right .v-ctl{padding-top:14px;border-top:1px solid var(--line)}
+.pf-pro{color:var(--soft);font-size:.95rem;margin-bottom:6px}
+.pf-bio{margin-top:16px;color:var(--ink);max-width:60ch}
+.pf-clubs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pf-clubs li{padding:4px 12px;border-radius:99px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);font-size:.9rem}
 @media (max-width:860px){
   .wrap{padding-inline:16px}
   .sec{padding-block:68px}
@@ -293,7 +303,9 @@ cite{position:relative;z-index:1;display:block;margin-top:18px;font:500 .95rem/1
   .panel{padding:26px 22px;min-height:210px}
   blockquote{padding:40px 26px}
   .people{grid-template-columns:repeat(2,1fr);gap:12px}
-  .pf-card{grid-template-columns:1fr;min-height:0}
+  .profile{overflow:auto}
+  .pf-card{grid-template-columns:1fr;min-height:0;height:auto}
+  .pf-body{overflow:visible;padding-right:0}
   .pf-photo{height:340px;object-position:center 60%}
   .v-close{margin-left:0}
   .pf-right{padding:24px 20px}

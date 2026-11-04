@@ -357,9 +357,18 @@
       body.textContent = "";
       var box = el("div", "pf-in");
       box.appendChild(el("h2", "", p.name));
+      if (p.pronouns) box.appendChild(el("p", "pf-pro", p.pronouns));
       if (p.role) box.appendChild(el("p", "role", p.role));
       if (p.degree) box.appendChild(el("p", "pf-deg", p.degree));
+      if (p.bio) box.appendChild(el("p", "pf-bio", p.bio));
       var dl = el("dl");
+      fact(dl, "Undergraduate institution", p.undergrad);
+      if (p.clubs && p.clubs.length) {
+        dl.appendChild(el("dt", "", "Clubs and affiliations"));
+        var cd = el("dd"), cu = el("ul", "pf-clubs");
+        p.clubs.forEach(function (x) { cu.appendChild(el("li", "", x)); });
+        cd.appendChild(cu); dl.appendChild(cd);
+      }
       fact(dl, "Research and professional interests", p.interests);
       fact(dl, "Always up for", p.upFor);
       fact(dl, "Favorite Indonesian food", p.food);
@@ -367,6 +376,7 @@
       if (p.linkedin) box.appendChild(link("", p.linkedin, "LinkedIn profile"));
       body.appendChild(box);
       pdlg.querySelector(".pf-count").textContent = (pAt + 1) + " of " + board.length;
+      pdlg.scrollTop = 0; body.scrollTop = 0;
     };
     var stepPerson = function (n) { pAt = (pAt + n + board.length) % board.length; showPerson(); };
     var openPerson = function (i) {
@@ -389,7 +399,7 @@
           if (e.key === "ArrowRight") stepPerson(1);
         });
       }
-      pAt = i; showPerson(); pdlg.showModal();
+      pAt = i; showPerson(); pdlg.showModal(); pdlg.scrollTop = 0; pdlg.querySelector(".pf-body").scrollTop = 0;
     };
     var person = function (p) {
       var li = el("li", "person spot reveal");
