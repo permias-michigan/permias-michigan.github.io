@@ -33,7 +33,7 @@
   var menu = el("button", "menu", "Menu"); menu.setAttribute("aria-expanded", "false"); menu.setAttribute("aria-controls", "nav");
   inner.appendChild(menu);
   var nav = el("nav"); nav.id = "nav";
-  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["#contact", "Contact", ""]].forEach(function (i) {
+  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["alumni.html", "Alumni", "alumni"], ["join.html", "Join", "join"], ["#contact", "Contact", ""]].forEach(function (i) {
     var a = link("", i[0], i[1]);
     if (i[2] === page || (page === "event" && i[2] === "events")) a.setAttribute("aria-current", "page");
     nav.appendChild(a);
@@ -298,8 +298,89 @@
   }
 
   /* Pages */
-  if (page === "home") {
-    renderUpcoming($("home-upcoming"), true);
+  function calLinks(e) {
+    var box = el("div", "cal-links");
+    var d = e.date.replace(/-/g, "");
+    var nx = new Date(Date.UTC(+e.date.slice(0, 4), +e.date.slice(5, 7) - 1, +e.date.slice(8, 10) + 1)).toISOString().slice(0, 10).replace(/-/g, "");
+    var info = e.summary + " " + location.origin + location.pathname.replace(/[^/]*$/, "") + eventUrl(e);
+    box.appendChild(link("btn cal", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(e.title) + "&dates=" + d + "/" + nx + "&location=" + encodeURIComponent(e.venue || "") + "&details=" + encodeURIComponent(info), "Add to Google Calendar"));
+    var ics = el("button", "btn cal", "Add to Apple or Outlook");
+    ics.type = "button";
+    ics.addEventListener("click", function () {
+      var esc = function (x) { return String(x || "").replace(/([,;\\])/g, "\\$1"); };
+      var text = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//PERMIAS Michigan//Events//EN", "BEGIN:VEVENT", "UID:" + e.id + "@permias-michigan.github.io", "DTSTAMP:" + new Date().toISOString().replace(/[-:]|\.\d+/g, ""), "DTSTART;VALUE=DATE:" + d, "DTEND;VALUE=DATE:" + nx, "SUMMARY:" + esc(e.title), "LOCATION:" + esc(e.venue), "DESCRIPTION:" + esc(e.summary), "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([text], { type: "text/calendar" }));
+      a.download = e.id + ".ics";
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+    box.appendChild(ics);
+    return box;
+  }
+  if (page === "home" && $("next-event")) {
+    var nextEv = upcoming.filter(function (e) { return !e.tba; })[0];
+    if (nextEv) {
+      var p0 = today.split("-"), p1 = nextEv.date.split("-");
+      var left = Math.round((Date.UTC(+p1[0], +p1[1] - 1, +p1[2]) - Date.UTC(+p0[0], +p0[1] - 1, +p0[2])) / 864e5);
+      var ban = el("section", "next-band");
+      var wrapB = el("div", "wrap next-in");
+      var num = el("div", "next-num");
+      num.appendChild(el("b", "", left === 0 ? "Today" : left === 1 ? "Tomorrow" : String(left)));
+      if (left > 1) num.appendChild(el("span", "", "days to go"));
+      var txt = el("div", "next-text");
+      txt.appendChild(el("p", "next-kick", "Next event"));
+      txt.appendChild(link("next-title", eventUrl(nextEv), nextEv.title));
+      txt.appendChild(el("p", "", [longDate(nextEv.date), nextEv.venue].filter(Boolean).join(", ")));
+      wrapB.appendChild(num); wrapB.appendChild(txt); wrapB.appendChild(calLinks(nextEv));
+      ban.appendChild(wrapB); $("next-event").appendChild(ban);
+    }
+  }
+  if (page === "join") {
+    if (S.joinForm) {
+      var jb = $("join-box"); jb.textContent = "";
+      jb.appendChild(link("btn blue", S.joinForm, "Fill out the join form"));
+    } else {
+      $("join-form").addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var f = ev.target;
+        var picks = [].map.call(f.querySelectorAll("[name=interest]:checked"), function (x) { return x.value; });
+        var lines = ["Hi PERMIAS,", "", "I'd like to get involved.", "", "Name: " + f.name.value, "Email: " + f.email.value, "I am a: " + f.status.value, "School or program: " + (f.program.value || "Not provided"), "Interests: " + (picks.join(", ") || "Not provided")];
+        location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("Joining PERMIAS: " + f.name.value) + "&body=" + encodeURIComponent(lines.join("\n"));
+      });
+    }
+  }
+  if (page === "alumni") {
+    var addHref = S.alumniForm || "mailto:" + S.email + "?subject=" + encodeURIComponent("Add me to the PERMIAS alumni directory") + "&body=" + encodeURIComponent("Please list me on the public alumni directory.\n\nName:\nGraduation year:\nField or program:\nCurrent role (optional):\nCity (optional):\nLinkedIn (optional):");
+    $("alumni-add").href = addHref; $("alumni-add-first").href = addHref;
+    var all = (S.alumni || []).slice().sort(function (a, b) { return String(b.year).localeCompare(String(a.year)) || a.name.localeCompare(b.name); });
+    if (!all.length) {
+      $("alumni-tools").hidden = true; $("alumni-empty").hidden = false;
+    } else {
+      var yr = $("alumni-year");
+      all.map(function (a) { return String(a.year); }).filter(function (y, i, l) { return y && l.indexOf(y) === i; }).forEach(function (y) {
+        var o = el("option", "", y); o.value = y; yr.appendChild(o);
+      });
+      var drawAlumni = function () {
+        var q = $("alumni-search").value.trim().toLowerCase(), y = yr.value, ul = $("alumni-list");
+        ul.textContent = "";
+        var hits = all.filter(function (a) {
+          return (!y || String(a.year) === y) && [a.name, a.field, a.role, a.city].join(" ").toLowerCase().indexOf(q) > -1;
+        });
+        hits.forEach(function (a) {
+          var li = el("li", "alum");
+          li.appendChild(el("h3", "", a.name));
+          li.appendChild(el("p", "alum-meta", [a.field, a.year && "Class of " + a.year].filter(Boolean).join(", ")));
+          var sub = [a.role, a.city].filter(Boolean).join(", ");
+          if (sub) li.appendChild(el("p", "", sub));
+          if (a.linkedin) li.appendChild(link("c-go", a.linkedin, "LinkedIn profile"));
+          ul.appendChild(li);
+        });
+        $("alumni-count").textContent = hits.length ? hits.length + (hits.length === 1 ? " alum" : " alumni") : "No alumni match that search. Try a different name, field, or year.";
+      };
+      $("alumni-search").addEventListener("input", drawAlumni);
+      yr.addEventListener("change", drawAlumni);
+      drawAlumni();
+    }
   }
   if (page === "events") {
     renderUpcoming($("upcoming"));
@@ -323,6 +404,7 @@
     var body = $("event-body");
     (e.overview || []).forEach(function (t, n2) { body.appendChild(el("p", n2 ? "ev-copy reveal" : "lead reveal", t)); });
     if (e.signup && e.date >= today) body.appendChild(link("btn blue", e.signup, "Sign up"));
+    if (e.date >= today && !e.tba) body.appendChild(calLinks(e));
     if (e.highlights && e.highlights.length) {
       var hl = el("ul", "pills reveal");
       e.highlights.forEach(function (h) { hl.appendChild(el("li", "", h)); });
@@ -454,7 +536,7 @@
     jt.appendChild(el("h2", "", "Want to get involved?"));
     jt.appendChild(el("p", "", "We'd love to meet you."));
     joinBox.appendChild(jt);
-    joinBox.appendChild(link("btn sun", "#contact", "Get in touch"));
+    joinBox.appendChild(link("btn sun", "join.html", "Join PERMIAS"));
     depts.parentNode.insertBefore(joinBox, $("member-block"));
     if (S.members.length) {
       $("member-block").hidden = false;

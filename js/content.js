@@ -4,6 +4,14 @@ window.SITE = {
   instagram: "https://www.instagram.com/indonesia.umich/",
   linkedin: "",
 
+  // Optional Google Form links. When set, these replace the email options.
+  joinForm: "",
+  alumniForm: "",
+
+  // Only list alumni who agreed to appear on this public website.
+  // Format: { name: "Name", year: "2024", field: "Public Policy", role: "Analyst, Company", city: "Jakarta", linkedin: "https://..." }
+  alumni: [],
+
   // Optional big photo for the top of the homepage, such as:
   // heroPhoto: "assets/events/icf-2026/festival-night.jpg"
   // Leave it empty to show the live batik pattern instead.

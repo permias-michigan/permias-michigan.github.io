@@ -3,7 +3,7 @@
 Website for the Indonesian Students Association at U-M. It's plain HTML, CSS, and JavaScript, so there's no build step.
 
 ## Pages
-`index.html` (home), `events.html`, `event.html` (one full page per event), `team.html`, and `resources.html`.
+`index.html` (home), `events.html`, `event.html` (one full page per event), `team.html`, `resources.html`, `alumni.html`, and `join.html`.
 
 ## Update the content
 Nearly everything is in `js/content.js`. The home and about text is in `index.html`.
@@ -36,6 +36,10 @@ photos: [{ src: "assets/events/icf-2026/festival-night.jpg", caption: "Festival 
 **Update the team:** add departments and people under `departments` and `members`. Save photos in `assets/team/`. Only add people who agreed to appear publicly.
 
 **Add a homepage photo:** set `heroPhoto` to the photo's path. Use a wide photo at least 1800 px across.
+
+**Add alumni:** add opted-in people to `alumni` in `js/content.js`.
+
+**Use Google Forms:** paste links into `joinForm` and `alumniForm` in `js/content.js`.
 
 ## Preview locally
 Open `index.html` in a browser.
