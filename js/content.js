@@ -7,16 +7,28 @@ window.SITE = {
   // Optional big photo for the top of the homepage, such as:
   // heroPhoto: "assets/events/icf-2026/festival-night.jpg"
   // Leave it empty to show the live batik pattern instead.
-  heroPhoto: "",
+  heroPhoto: "assets/events/icf-2026/hero.jpg",
 
   // Only list people who agreed to appear on a public website.
   // Add a section for each department, in the order you want them shown.
   departments: [
     {
-      name: "Public Relations",
-      about: "Outreach to alumni and partner organizations.",
+      name: "Board",
+      about: "Select anyone to read their profile.",
       people: [
-        { name: "Viola", role: "Public Relations Officer", major: "Computer Engineering", bio: "", photo: "", linkedin: "" }
+        { name: "Adli", photo: "assets/team/adli.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "", upFor: "Dancing, traveling, and running", food: "Sate" },
+        { name: "Beatrice", photo: "assets/team/beatrice.jpg", role: "Director, Creative Department", degree: "Master of Social Work, 2026", interests: "", upFor: "Playing games and traveling", food: "Bakmi Ayam" },
+        { name: "Bryan", photo: "assets/team/bryan.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "", upFor: "Solo traveling", food: "Ayam Geprek" },
+        { name: "Cita", photo: "assets/team/cita.jpg", role: "", degree: "M.S.E. in Construction Engineering & Management, 2027", interests: "", upFor: "Playing badminton", food: "Bakso, Sate Madura, and Siomay" },
+        { name: "Fian", photo: "assets/team/fian.jpg", role: "", degree: "M.Eng. in Automotive Engineering, 2026", interests: "Automotive powertrain and safety design, and the stock exchange", upFor: "Sports, e-Football, and hiking", food: "Seruit" },
+        { name: "Hemas", photo: "assets/team/hemas.jpg", role: "", degree: "Master of Business Administration, 2027", interests: "Digital transformation, strategy, and operations", upFor: "Golfing", food: "Nasi Goreng" },
+        { name: "Kayla", photo: "assets/team/kayla.jpg", role: "", degree: "B.S.E. in Chemical Engineering, 2029", interests: "Process optimization, machine learning, and metals", upFor: "Playing guitar and piano, taekwondo, and watching movies", food: "Rujak Cingur" },
+        { name: "Nathanael", photo: "assets/team/nathanael.jpg", role: "", degree: "Master of Public Health in Health Management and Policy, 2027", interests: "", upFor: "Playing tennis and the gym", food: "Nasi Padang" },
+        { name: "Raffi", photo: "assets/team/raffi.jpg", role: "", degree: "M.S.E. in Naval Architecture and Marine Engineering, 2027", interests: "Sustainable maritime energy", upFor: "Playing cards and board games", food: "Ayam Geprek" },
+        { name: "Sarah", photo: "assets/team/sarah.jpg", role: "", degree: "Master of Business Administration, 2027", interests: "", upFor: "Reading and journaling", food: "Pempek" },
+        { name: "Sophie", photo: "assets/team/sophie.jpg", role: "", degree: "B.S.E. in Industrial and Operations Engineering, 2029", interests: "", upFor: "Baking, swimming, and going on walks", food: "Nasi Timbel" },
+        { name: "Viola", photo: "assets/team/viola.jpg", role: "Public Relations Officer", degree: "B.S.E. in Computer Engineering, 2028", interests: "Software, data science, and machine learning/AI", upFor: "Learning new sports and instruments", food: "Babi Panggang Karo" },
+        { name: "Zulio", photo: "assets/team/zulio.jpg", role: "", degree: "Master of Public Policy, 2027", interests: "Behavioral science and decision-making, mental health, poverty and inequality, and international development", upFor: "Reading, walking, and poetry and fiction writing", food: "Sate Ayam Madura" }
       ]
     }
   ],
@@ -67,7 +79,16 @@ window.SITE = {
       ],
       quote: { text: "You are not only students; you are cultural ambassadors of Indonesia.", by: "Dwisuryo Indroyono Soesilo, Indonesian Ambassador to the U.S. and U-M alum" },
       photos: [
-        // { src: "assets/events/icf-2026/festival-night.jpg", caption: "Festival Night" }
+        { src: "assets/events/icf-2026/on-stage.jpg", caption: "On stage at Festival Night" },
+        { src: "assets/events/icf-2026/festival-stage.jpg", caption: "The Festival Night stage" },
+        { src: "assets/events/icf-2026/ballroom.jpg", caption: "A full Michigan League Ballroom" },
+        { src: "assets/events/icf-2026/dancing.jpg", caption: "Dancing together on stage" },
+        { src: "assets/events/icf-2026/live-music.jpg", caption: "Live music at Festival Night" },
+        { src: "assets/events/icf-2026/welcome.jpg", caption: "Remarks from the Festival Night stage" },
+        { src: "assets/events/icf-2026/guests.jpg", caption: "Guests dressed in batik" },
+        { src: "assets/events/icf-2026/backdrop.jpg", caption: "At the festival photo backdrop" },
+        { src: "assets/events/icf-2026/gathering.jpg", caption: "Guests gathering outside the ballroom" },
+        { src: "assets/events/icf-2026/crowd.jpg", caption: "The view from the back of the room" }
       ],
       links: [
         { label: "Read about the Ambassador's visit", url: "https://prod.lsa.umich.edu/content/ii-directory/cseas/en/news-events/news/search-news/indonesian-ambassador-and-consulate-general-visit-michigan-for-i.html" },

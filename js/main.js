@@ -33,7 +33,7 @@
   var menu = el("button", "menu", "Menu"); menu.setAttribute("aria-expanded", "false"); menu.setAttribute("aria-controls", "nav");
   inner.appendChild(menu);
   var nav = el("nav"); nav.id = "nav";
-  [["events.html", "Events", "events"], ["gallery.html", "Gallery", "gallery"], ["team.html", "Team", "team"], ["#contact", "Contact", ""]].forEach(function (i) {
+  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["#contact", "Contact", ""]].forEach(function (i) {
     var a = link("", i[0], i[1]);
     if (i[2] === page || (page === "event" && i[2] === "events")) a.setAttribute("aria-current", "page");
     nav.appendChild(a);
@@ -241,12 +241,6 @@
     });
     host.appendChild(grid);
   }
-  function photosSoon(host, text) {
-    var box = el("div", "soon reveal"); box.dataset.batik = "";
-    box.appendChild(el("p", "", text));
-    host.appendChild(box);
-  }
-
   /* Event cards */
   function card(e) {
     var li = el("li", "reveal");
@@ -338,38 +332,79 @@
       body.appendChild(pr);
       program(pr, e.schedule);
     }
-    body.appendChild(el("h2", "spaced reveal", "Gallery"));
-    if (e.photos && e.photos.length) gallery(body, e.photos, e.title);
-    else photosSoon(body, "Photos coming soon.");
+    if (e.photos && e.photos.length) {
+      body.appendChild(el("h2", "spaced reveal", "Photos"));
+      gallery(body, e.photos, e.title);
+    }
     var pn = el("div", "pager reveal");
     (e.links || []).forEach(function (l) { pn.appendChild(link("", l.url, l.label)); });
     var n = past.indexOf(e);
     if (n > -1 && past[n + 1]) pn.appendChild(link("next", eventUrl(past[n + 1]), "Older: " + past[n + 1].title));
     body.appendChild(pn);
   }
-  if (page === "gallery") {
-    var host = $("all-photos");
-    var withPhotos = S.events.filter(function (e) { return e.photos && e.photos.length; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    if (!withPhotos.length) photosSoon(host, "Photos from our events are coming soon.");
-    withPhotos.forEach(function (e, i) {
-      var head = el("h2", i ? "spaced reveal" : "reveal");
-      head.appendChild(link("", eventUrl(e), e.title));
-      host.appendChild(head);
-      gallery(host, e.photos, e.title);
-    });
-  }
   if (page === "team") {
+    var board = [], pdlg, pAt = 0;
+    var fact = function (box, label, value) {
+      if (!value) return;
+      box.appendChild(el("dt", "", label));
+      box.appendChild(el("dd", "", value));
+    };
+    var showPerson = function () {
+      var p = board[pAt], body = pdlg.querySelector(".pf-body");
+      var im = pdlg.querySelector(".pf-photo");
+      im.src = p.photo || ""; im.alt = "Portrait of " + p.name; im.hidden = !p.photo;
+      body.textContent = "";
+      var box = el("div", "pf-in");
+      box.appendChild(el("h2", "", p.name));
+      if (p.role) box.appendChild(el("p", "role", p.role));
+      if (p.degree) box.appendChild(el("p", "pf-deg", p.degree));
+      var dl = el("dl");
+      fact(dl, "Research and professional interests", p.interests);
+      fact(dl, "Always up for", p.upFor);
+      fact(dl, "Favorite Indonesian food", p.food);
+      box.appendChild(dl);
+      if (p.linkedin) box.appendChild(link("", p.linkedin, "LinkedIn profile"));
+      body.appendChild(box);
+      pdlg.querySelector(".pf-count").textContent = (pAt + 1) + " of " + board.length;
+    };
+    var stepPerson = function (n) { pAt = (pAt + n + board.length) % board.length; showPerson(); };
+    var openPerson = function (i) {
+      if (!pdlg) {
+        pdlg = el("dialog", "profile");
+        pdlg.setAttribute("aria-label", "Board profile");
+        var card = el("div", "pf-card");
+        var im = el("img", "pf-photo"); card.appendChild(im);
+        var right = el("div", "pf-right");
+        right.appendChild(el("div", "pf-body"));
+        var ctl = el("div", "v-ctl");
+        var prev = el("button", "", "Previous"), next = el("button", "", "Next"), close = el("button", "v-close", "Close");
+        prev.onclick = function () { stepPerson(-1); }; next.onclick = function () { stepPerson(1); }; close.onclick = function () { pdlg.close(); };
+        ctl.appendChild(prev); ctl.appendChild(next); ctl.appendChild(el("span", "pf-count")); ctl.appendChild(close);
+        right.appendChild(ctl); card.appendChild(right); pdlg.appendChild(card);
+        document.body.appendChild(pdlg);
+        pdlg.addEventListener("click", function (e) { if (e.target === pdlg) pdlg.close(); });
+        pdlg.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") stepPerson(-1);
+          if (e.key === "ArrowRight") stepPerson(1);
+        });
+      }
+      pAt = i; showPerson(); pdlg.showModal();
+    };
     var person = function (p) {
       var li = el("li", "person spot reveal");
+      var i = board.push(p) - 1;
+      var b = el("button", "person-btn");
+      b.type = "button";
+      b.setAttribute("aria-label", "View profile: " + p.name);
       var a = el("div", "avatar");
-      if (p.photo) { var im = el("img"); im.src = p.photo; im.alt = "Photo of " + p.name; im.loading = "lazy"; a.appendChild(im); }
-      li.appendChild(a);
-      li.appendChild(el("h3", "", p.name));
-      li.appendChild(el("p", "role", p.role || "Member"));
-      var meta = [p.major, p.year].filter(Boolean).join(", ");
-      if (meta) li.appendChild(el("p", "", meta));
-      if (p.bio) li.appendChild(el("p", "", p.bio));
-      if (p.linkedin) li.appendChild(link("", p.linkedin, "LinkedIn"));
+      if (p.photo) { var im = el("img"); im.src = p.photo; im.alt = ""; im.loading = "lazy"; a.appendChild(im); }
+      b.appendChild(a);
+      b.appendChild(el("span", "p-name", p.name));
+      if (p.role) b.appendChild(el("span", "role", p.role));
+      if (p.degree) b.appendChild(el("span", "p-deg", p.degree));
+      b.appendChild(el("span", "p-go", "View profile"));
+      b.onclick = function () { openPerson(i); };
+      li.appendChild(b);
       return li;
     };
     var depts = $("departments"), dfBox = $("dept-filters");
