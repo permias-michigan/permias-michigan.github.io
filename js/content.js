@@ -84,15 +84,15 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
-      // Replace date with YYYY-MM-DD and dateLabel once confirmed, then remove tba.
-      id: "natw", date: "9999-12-31", tba: true,
+      id: "natw", date: "2026-11-12",
       title: "Night Around the World (NATW)",
-      dateLabel: "Date coming soon",
-      summary: "Visit the PERMIAS batik booth at Night Around the World.",
+      dateLabel: "November 12, 2026",
+      venue: "The Diag",
+      summary: "Visit the PERMIAS batik booth at Night Around the World on the Diag.",
       overview: ["PERMIAS will open a batik booth at Night Around the World. Come say hello and experience batik with us."],
       highlights: ["PERMIAS batik booth"],
       photos: [],
-      links: []
+      links: [{ label: "See the event on Instagram", url: "https://www.instagram.com/p/De9nCp8Rh21/" }]
     },
     {
       id: "batik-day", date: "2026-10-22", featured: true,
