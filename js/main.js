@@ -379,12 +379,40 @@
       if (p.linkedin) li.appendChild(link("", p.linkedin, "LinkedIn"));
       return li;
     };
-    S.team.forEach(function (p) { $("team").appendChild(person(p)); });
-    var join = el("li", "person join reveal");
-    join.appendChild(el("h3", "", "Want to get involved?"));
-    join.appendChild(el("p", "", "We'd love to meet you."));
-    join.appendChild(link("btn sun", "#contact", "Get in touch"));
-    $("team").appendChild(join);
+    var depts = $("departments"), dfBox = $("dept-filters");
+    var secs = S.departments.map(function (dep) {
+      var sec = el("section", "dept");
+      var dh = el("div", "dept-head reveal");
+      dh.appendChild(el("h2", "", dep.name));
+      if (dep.about) dh.appendChild(el("p", "", dep.about));
+      sec.appendChild(dh);
+      var ul = el("ul", "people");
+      dep.people.forEach(function (p) { ul.appendChild(person(p)); });
+      sec.appendChild(ul);
+      depts.appendChild(sec);
+      return sec;
+    });
+    if (secs.length > 1) {
+      ["All"].concat(S.departments.map(function (x) { return x.name; })).forEach(function (name, i) {
+        var b = el("button", "chip", name);
+        b.type = "button"; b.setAttribute("aria-pressed", i === 0);
+        b.addEventListener("click", function () {
+          [].forEach.call(dfBox.children, function (o) { o.setAttribute("aria-pressed", o === b); });
+          secs.forEach(function (sec, n) {
+            sec.hidden = i !== 0 && n !== i - 1;
+            [].forEach.call(sec.querySelectorAll(".reveal"), function (r) { r.classList.add("in"); });
+          });
+        });
+        dfBox.appendChild(b);
+      });
+    } else dfBox.hidden = true;
+    var joinBox = el("div", "join-row reveal");
+    var jt = el("div");
+    jt.appendChild(el("h2", "", "Want to get involved?"));
+    jt.appendChild(el("p", "", "We'd love to meet you."));
+    joinBox.appendChild(jt);
+    joinBox.appendChild(link("btn sun", "#contact", "Get in touch"));
+    depts.parentNode.insertBefore(joinBox, $("member-block"));
     if (S.members.length) {
       $("member-block").hidden = false;
       S.members.forEach(function (p) { $("members").appendChild(person(p)); });
@@ -394,6 +422,15 @@
   /* Effects */
   [].forEach.call(document.querySelectorAll("[data-batik]"), batik);
   [].forEach.call(document.querySelectorAll(".spot"), spot);
+
+  /* Optional homepage photo */
+  var heroBox = document.querySelector(".hero");
+  if (heroBox && S.heroPhoto) {
+    heroBox.classList.add("has-photo");
+    heroBox.insertBefore(el("div", "hero-shade"), heroBox.firstChild);
+    var hp = el("img", "hero-photo"); hp.src = S.heroPhoto; hp.alt = "";
+    heroBox.insertBefore(hp, heroBox.firstChild);
+  }
 
   function countUp(n) {
     var to = +n.dataset.count, suffix = n.dataset.suffix || "", start = performance.now();

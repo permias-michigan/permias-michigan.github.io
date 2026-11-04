@@ -4,10 +4,21 @@ window.SITE = {
   instagram: "",             // Paste a full link, and the site shows it.
   linkedin: "",
 
+  // Optional big photo for the top of the homepage, such as:
+  // heroPhoto: "assets/events/icf-2026/festival-night.jpg"
+  // Leave it empty to show the live batik pattern instead.
+  heroPhoto: "",
+
   // Only list people who agreed to appear on a public website.
-  team: [
-    { name: "Viola", role: "Public Relations Officer", major: "Computer Engineering", bio: "", photo: "", linkedin: "" }
-    // Add the rest of the team here, one line per person.
+  // Add a section for each department, in the order you want them shown.
+  departments: [
+    {
+      name: "Public Relations",
+      about: "Outreach to alumni and partner organizations.",
+      people: [
+        { name: "Viola", role: "Public Relations Officer", major: "Computer Engineering", bio: "", photo: "", linkedin: "" }
+      ]
+    }
   ],
   members: [
     // { name: "Name", major: "Computer Science", year: "2028", photo: "assets/team/name.jpg" }

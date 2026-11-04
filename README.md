@@ -32,7 +32,9 @@ Nearly everything is in `js/content.js`. The home and about text is in `index.ht
 photos: [{ src: "assets/events/icf-2026/festival-night.jpg", caption: "Festival Night" }]
 ```
 
-**Update the team:** add one line per person to `team` and `members`. Save photos in `assets/team/`. Only add people who agreed to appear publicly.
+**Update the team:** add departments and people under `departments` and `members`. Save photos in `assets/team/`. Only add people who agreed to appear publicly.
+
+**Add a homepage photo:** set `heroPhoto` to the photo's path. Use a wide photo at least 1800 px across.
 
 ## Preview locally
 Open `index.html` in a browser.
