@@ -408,8 +408,8 @@
       li.appendChild(b);
       return li;
     };
-    var depts = $("departments"), dfBox = $("dept-filters");
-    var secs = S.departments.map(function (dep) {
+    var depts = $("departments");
+    S.departments.forEach(function (dep) {
       var sec = el("section", "dept");
       var dh = el("div", "dept-head reveal");
       dh.appendChild(el("h2", "", dep.name));
@@ -419,22 +419,7 @@
       dep.people.forEach(function (p) { ul.appendChild(person(p)); });
       sec.appendChild(ul);
       depts.appendChild(sec);
-      return sec;
     });
-    if (secs.length > 1) {
-      ["All"].concat(S.departments.map(function (x) { return x.name; })).forEach(function (name, i) {
-        var b = el("button", "chip", name);
-        b.type = "button"; b.setAttribute("aria-pressed", i === 0);
-        b.addEventListener("click", function () {
-          [].forEach.call(dfBox.children, function (o) { o.setAttribute("aria-pressed", o === b); });
-          secs.forEach(function (sec, n) {
-            sec.hidden = i !== 0 && n !== i - 1;
-            [].forEach.call(sec.querySelectorAll(".reveal"), function (r) { r.classList.add("in"); });
-          });
-        });
-        dfBox.appendChild(b);
-      });
-    } else dfBox.hidden = true;
     var joinBox = el("div", "join-row reveal");
     var jt = el("div");
     jt.appendChild(el("h2", "", "Want to get involved?"));
