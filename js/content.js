@@ -6,9 +6,8 @@ window.SITE = {
 
   // Only list people who agreed to appear on a public website.
   team: [
-    { name: "Viola", role: "Public Relations Officer", major: "Computer Engineering", bio: "", photo: "", linkedin: "" },
-    { name: "", role: "" }, { name: "", role: "" }, { name: "", role: "" },
-    { name: "", role: "" }, { name: "", role: "" }, { name: "", role: "" }, { name: "", role: "" }
+    { name: "Viola", role: "Public Relations Officer", major: "Computer Engineering", bio: "", photo: "", linkedin: "" }
+    // Add the rest of the team here, one line per person.
   ],
   members: [
     // { name: "Name", major: "Computer Science", year: "2028", photo: "assets/team/name.jpg" }
@@ -23,24 +22,19 @@ window.SITE = {
       theme: "Islands of Rhythm, Oceans of Stories: Experience Indonesia",
       dateLabel: "March 20 to April 3, 2026",
       venue: "Weiser Hall, International House Ann Arbor, and Michigan League Ballroom",
-      summary: "A month of photography, film, music, batik, and celebration that shared Indonesian culture with the U-M community.",
-      overview: [
-        "The Indonesian Cultural Festival invited students, faculty, staff, alumni, and the wider community to explore Indonesia's stories, creativity, and traditions and to connect across cultures.",
-        "Festival Night brought the program together with gamelan music from U-M's Gamelan Kyai Telaga Madu, traditional dances by our members, a live band, and a shared Indonesian dinner that included beef rendang and chicken curry."
-      ],
+      summary: "A month of film, music, batik, and photography, ending with Festival Night.",
+      overview: ["A month of film, angklung, batik, and photography, ending with a Festival Night of gamelan, traditional dance, live music, and Indonesian food."],
       highlights: [
-        "Indonesian Ambassador Dwisuryo Indroyono Soesilo, a U-M alumnus, gave welcoming remarks",
-        "Consul General Trisari Dyah Paramita of Chicago joined the Ambassador's visit",
-        "Guests made their own batik designs with help from our members"
+        "Welcoming remarks from Ambassador Soesilo", "Gamelan Kyai Telaga Madu", "Traditional dances", "Live band", "Hands-on batik"
       ],
       schedule: [
-        { when: "March 20", title: "Photography Contest", where: "Submission deadline", text: "Photos exploring cultural identity, traditions, and heritage within the U-M community." },
-        { when: "March 27", title: "Indonesian Movie Screening", where: "Weiser Hall, Room 110, 5 to 7 pm", text: "A screening of Gundala (2019), Joko Anwar's superhero film based on the classic Indonesian comic." },
-        { when: "March 28", title: "Angklung Musical Workshop", where: "International House Ann Arbor, 2 to 3 pm", text: "A hands-on introduction to angklung, the bamboo instrument from West Java." },
-        { when: "April 2", title: "Batik Coloring Workshop", where: "Weiser Hall, 3 to 5 pm", text: "Participants learned about wax-resist batik and made their own designs." },
-        { when: "April 3", title: "Festival Night", where: "Michigan League Ballroom, 5 to 8 pm", text: "Music, dance, games, cultural activities, and a shared Indonesian dinner." }
+        { when: "March 20", title: "Photography Contest", where: "Submission deadline" },
+        { when: "March 27", title: "Indonesian Movie Screening", where: "Weiser Hall, Room 110, 5 to 7 pm" },
+        { when: "March 28", title: "Angklung Musical Workshop", where: "International House Ann Arbor, 2 to 3 pm" },
+        { when: "April 2", title: "Batik Coloring Workshop", where: "Weiser Hall, 3 to 5 pm" },
+        { when: "April 3", title: "Festival Night", where: "Michigan League Ballroom, 5 to 8 pm" }
       ],
-      quote: { text: "You are not only students; you are cultural ambassadors of Indonesia.", by: "Dwisuryo Indroyono Soesilo, Indonesian Ambassador to the United States" },
+      quote: { text: "You are not only students; you are cultural ambassadors of Indonesia.", by: "Dwisuryo Indroyono Soesilo, Indonesian Ambassador to the U.S. and U-M alum" },
       photos: [
         // { src: "assets/events/icf-2026/festival-night.jpg", caption: "Festival Night" }
       ],
