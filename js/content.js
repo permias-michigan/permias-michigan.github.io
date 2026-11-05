@@ -3,6 +3,13 @@ window.SITE = {
   email: "michiganpermias@gmail.com",
   instagram: "https://www.instagram.com/indonesia.umich/",
   linkedin: "",
+  // Shown on the Contact page, in this order. Add, remove, or edit a row to update it.
+  socials: [
+    { name: "Instagram", handle: "@indonesia.umich", note: "Event news, photos, and announcements", url: "https://www.instagram.com/indonesia.umich/" },
+    { name: "Maize Pages", handle: "PERMIAS", note: "Our official U-M student org page", url: "https://maizepages.umich.edu/organization/permias" },
+    { name: "Facebook", handle: "permias.michigan", note: "Our community page", url: "https://www.facebook.com/permias.michigan/" },
+    { name: "YouTube", handle: "permiasmichigan", note: "Videos from PERMIAS Michigan", url: "https://youtube.com/permiasmichigan" }
+  ],
 
   // Optional Google Form links. When set, these replace the email options.
   joinForm: "",

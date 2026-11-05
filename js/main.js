@@ -33,7 +33,7 @@
   var menu = el("button", "menu", "Menu"); menu.setAttribute("aria-expanded", "false"); menu.setAttribute("aria-controls", "nav");
   inner.appendChild(menu);
   var nav = el("nav"); nav.id = "nav";
-  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["alumni.html", "Alumni", "alumni"], ["join.html", "Join", "join"], ["#contact", "Contact", ""]].forEach(function (i) {
+  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["alumni.html", "Alumni", "alumni"], ["join.html", "Join", "join"], ["contact.html", "Contact", "contact"]].forEach(function (i) {
     var a = link("", i[0], i[1]);
     if (i[2] === page || (page === "event" && i[2] === "events")) a.setAttribute("aria-current", "page");
     nav.appendChild(a);
@@ -52,24 +52,39 @@
 
   /* Contact */
   var foot = $("site-foot");
-  var c = el("section", "contact"); c.id = "contact"; c.dataset.batik = "";
-  var cw = el("div", "wrap contact-in");
-  var left = el("div", "reveal");
-  left.appendChild(el("h2", "", "Let's connect"));
-  left.appendChild(el("p", "", "Join us, partner with us, or reconnect as an alum."));
-  cw.appendChild(left);
-  var box = el("div", "contact-links reveal");
-  box.appendChild(link("btn sun mail", "mailto:" + S.email, S.email));
-  var copy = el("button", "btn ghost", "Copy email");
-  copy.addEventListener("click", function () {
-    var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy email"; }, 1800); };
-    if (navigator.clipboard) navigator.clipboard.writeText(S.email).then(done, function () { copy.textContent = "Press and hold the address to copy"; });
-    else copy.textContent = "Press and hold the address to copy";
-  });
-  box.appendChild(copy);
-  if (S.instagram) box.appendChild(link("btn ghost", S.instagram, "@indonesia.umich on Instagram"));
-  if (S.linkedin) box.appendChild(link("btn ghost", S.linkedin, "LinkedIn"));
-  cw.appendChild(box); c.appendChild(cw); foot.appendChild(c);
+  function copyEmail(copy) {
+    copy.addEventListener("click", function () {
+      var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy email"; }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(S.email).then(done, function () { copy.textContent = "Press and hold the address to copy"; });
+      else copy.textContent = "Press and hold the address to copy";
+    });
+  }
+  if (page !== "contact") {
+    var c = el("section", "contact"); c.id = "contact"; c.dataset.batik = "";
+    var cw = el("div", "wrap contact-in");
+    var left = el("div", "reveal");
+    left.appendChild(el("h2", "", "Let's connect"));
+    left.appendChild(el("p", "", "Join us, partner with us, or reconnect as an alum."));
+    cw.appendChild(left);
+    var box = el("div", "contact-links reveal");
+    box.appendChild(link("btn sun mail", "mailto:" + S.email, S.email));
+    box.appendChild(link("btn ghost", "contact.html", "All the ways to reach us"));
+    cw.appendChild(box); c.appendChild(cw); foot.appendChild(c);
+  }
+  if ($("social-grid")) {
+    var mail = "mailto:" + S.email;
+    $("reach-address").href = mail; $("reach-address").textContent = S.email;
+    $("reach-write").href = mail;
+    $("reach-partner").href = mail + "?subject=" + encodeURIComponent("Partnership with PERMIAS Michigan");
+    copyEmail($("reach-copy"));
+    (S.socials || []).forEach(function (s) {
+      var a = link("reach-tile reveal", s.url, "");
+      a.appendChild(el("strong", "", s.name));
+      a.appendChild(el("span", "reach-handle", s.handle));
+      a.appendChild(el("span", "reach-note", s.note));
+      $("social-grid").appendChild(a);
+    });
+  }
   var f = el("div", "wrap foot");
   f.appendChild(el("p", "", "© " + d.getFullYear() + " Indonesian Students Association at U-M"));
   foot.appendChild(f);
@@ -290,7 +305,7 @@
       if (hideEmpty) return;
       var p = el("p", "note");
       p.appendChild(document.createTextNode("Nothing posted yet. "));
-      p.appendChild(link("", "#contact", "Ask us what's next."));
+      p.appendChild(link("", "contact.html", "Ask us what's next."));
       host.appendChild(p);
       return;
     }
