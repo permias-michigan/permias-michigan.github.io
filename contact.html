@@ -20,42 +20,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261105a">
+<link rel="stylesheet" href="css/styles.css?v=20261105c">
 </head>
 <body data-page="contact">
 <a class="skip" href="#main">Skip to content</a>
 <header id="bar" class="bar"></header>
 <main id="main">
-<section class="page-head" data-batik><div class="wrap"><h1>Contact us</h1><p>Questions, partnerships, or just saying hi. Here's where to find us.</p></div></section>
-<section class="wrap sec">
-  <div class="reach-mail reveal" data-batik>
-    <div>
-      <h2>Email us</h2>
-      <p>For questions, partnerships, and anything else.</p>
-      <a class="reach-address" id="reach-address" href="#"></a>
-    </div>
-    <div class="reach-actions">
-      <a class="btn sun" id="reach-write" href="#">Write an email</a>
-      <button class="btn ghost" id="reach-copy" type="button">Copy email</button>
-    </div>
+<div class="talk">
+<section class="talk-hero" data-batik>
+  <div class="wrap">
+    <h1>Let's talk.</h1>
+    <p>Questions, partnerships, or just saying hi. We'd love to hear from you.</p>
+    <button class="talk-email" id="talk-email" type="button"><span id="talk-address"></span></button>
+    <p class="talk-hint" id="talk-hint" role="status">Click to copy</p>
   </div>
 </section>
-<section class="wrap sec reach-sec">
-  <h2 class="reveal">Find us online</h2>
-  <div class="reach-grid" id="social-grid"></div>
-</section>
-<section class="wrap sec reach-sec">
-  <h2 class="reveal">Looking for something specific?</h2>
-  <div class="reach-list reveal">
-    <a href="resources.html#new-students"><b>New to Michigan</b><span>Start with the new student guide</span></a>
-    <a href="join.html"><b>Want to join</b><span>Tell us about yourself</span></a>
-    <a href="alumni.html"><b>Alumni</b><span>Reconnect with the community</span></a>
-    <a id="reach-partner" href="#"><b>Partners and sponsors</b><span>Email us about working together</span></a>
+<section class="wrap talk-write">
+  <div class="talk-ask reveal">
+    <h2>What brings you here?</h2>
+    <div class="talk-chips" id="talk-chips"></div>
   </div>
+  <form class="letter reveal" id="letter">
+    <p class="letter-line"><span>To</span><b id="letter-to"></b></p>
+    <p class="letter-line"><span>Subject</span><b id="letter-subject"></b></p>
+    <label class="letter-msg"><span class="sr">Your message</span><textarea id="letter-body" rows="6"></textarea></label>
+    <label class="letter-name">From<input id="letter-name" autocomplete="name" placeholder="Your name"></label>
+    <div class="letter-foot">
+      <button class="btn blue" type="submit">Open in my email</button>
+      <small>You can check it before it sends.</small>
+    </div>
+  </form>
 </section>
+<section class="talk-social">
+  <div class="wrap">
+    <h2 class="reveal">Find us online</h2>
+    <div class="social-rows" id="social-grid"></div>
+  </div>
+  <img class="social-float" id="social-float" alt="" aria-hidden="true">
+</section>
+</div>
 </main>
 <footer id="site-foot"></footer>
-<script src="js/content.js?v=20261105a"></script>
-<script src="js/main.js?v=20261105a"></script>
+<script src="js/content.js?v=20261105c"></script>
+<script src="js/main.js?v=20261105c"></script>
 </body>
 </html>

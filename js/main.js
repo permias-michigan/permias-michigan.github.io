@@ -52,13 +52,6 @@
 
   /* Contact */
   var foot = $("site-foot");
-  function copyEmail(copy) {
-    copy.addEventListener("click", function () {
-      var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy email"; }, 1800); };
-      if (navigator.clipboard) navigator.clipboard.writeText(S.email).then(done, function () { copy.textContent = "Press and hold the address to copy"; });
-      else copy.textContent = "Press and hold the address to copy";
-    });
-  }
   if (page !== "contact") {
     var c = el("section", "contact"); c.id = "contact"; c.dataset.batik = "";
     var cw = el("div", "wrap contact-in");
@@ -72,16 +65,87 @@
     cw.appendChild(box); c.appendChild(cw); foot.appendChild(c);
   }
   if ($("social-grid")) {
-    var mail = "mailto:" + S.email;
-    $("reach-address").href = mail; $("reach-address").textContent = S.email;
-    $("reach-write").href = mail;
-    $("reach-partner").href = mail + "?subject=" + encodeURIComponent("Partnership with PERMIAS Michigan");
-    copyEmail($("reach-copy"));
+    var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* Copy the email */
+    var mailBtn = $("talk-email"), hint = $("talk-hint"), hintTimer;
+    $("talk-address").textContent = S.email;
+    mailBtn.addEventListener("click", function () {
+      var say = function (msg, ok) {
+        hint.textContent = msg; mailBtn.classList.toggle("copied", ok);
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(function () { hint.textContent = "Click to copy"; mailBtn.classList.remove("copied"); }, 2200);
+      };
+      var fail = function () { location.href = "mailto:" + S.email; };
+      if (navigator.clipboard) navigator.clipboard.writeText(S.email).then(function () { say("Copied. See you in your inbox.", true); }, fail);
+      else fail();
+    });
+    /* Message builder */
+    var topics = [
+      { label: "Just saying hi", subject: "Hello from the website", body: "Hi PERMIAS,\n\nI found your website and wanted to say hello." },
+      { label: "I want to join", subject: "Joining PERMIAS Michigan", body: "Hi PERMIAS,\n\nI'd like to get involved. Could you tell me how to join and what's coming up?" },
+      { label: "I'm new to Michigan", subject: "New to Michigan", body: "Hi PERMIAS,\n\nI'm new to Michigan and would love to meet the community. Could you help me get connected?" },
+      { label: "Partner or sponsor", subject: "Partnership with PERMIAS Michigan", body: "Hi PERMIAS,\n\nI'm reaching out from [organization] and would like to talk about working together." },
+      { label: "I'm an alum", subject: "PERMIAS alum saying hello", body: "Hi PERMIAS,\n\nI'm a U-M alum and would like to reconnect with the community." }
+    ];
+    var area = $("letter-body"), subj = $("letter-subject"), typing, edited = false;
+    $("letter-to").textContent = S.email;
+    function type(text) {
+      clearInterval(typing);
+      if (calm) { area.value = text; return; }
+      var i = 0; area.value = "";
+      typing = setInterval(function () {
+        i += 2; area.value = text.slice(0, i);
+        if (i >= text.length) clearInterval(typing);
+      }, 14);
+    }
+    area.addEventListener("input", function () { edited = true; clearInterval(typing); });
+    topics.forEach(function (t, i) {
+      var b = el("button", "chip", t.label); b.type = "button";
+      b.setAttribute("aria-pressed", i === 0);
+      b.addEventListener("click", function () {
+        [].forEach.call($("talk-chips").children, function (x) { x.setAttribute("aria-pressed", x === b); });
+        subj.textContent = t.subject;
+        subj.classList.remove("flip"); void subj.offsetWidth; subj.classList.add("flip");
+        if (!edited) type(t.body);
+      });
+      $("talk-chips").appendChild(b);
+    });
+    subj.textContent = topics[0].subject; area.value = topics[0].body;
+    $("letter").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = $("letter-name").value.trim();
+      location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent(subj.textContent) +
+        "&body=" + encodeURIComponent(area.value + (name ? "\n\nThanks,\n" + name : ""));
+    });
+    /* Social rows, with a photo that follows the pointer */
+    var float = $("social-float"), fine = matchMedia("(hover:hover) and (pointer:fine)").matches && !calm;
+    var fx = 0, fy = 0, tx2 = 0, ty2 = 0, floating = false, fr = 0;
+    function drift() {
+      var dx = tx2 - fx; fx += dx * .14; fy += (ty2 - fy) * .14;
+      var tilt = Math.max(-9, Math.min(9, dx * .06));
+      float.style.transform = "translate(" + fx + "px," + fy + "px) translate(28px,-50%) rotate(" + tilt + "deg)";
+      fr = floating || Math.abs(dx) > .5 ? requestAnimationFrame(drift) : 0;
+    }
     (S.socials || []).forEach(function (s) {
-      var a = link("reach-tile reveal", s.url, "");
-      a.appendChild(el("strong", "", s.name));
-      a.appendChild(el("span", "reach-handle", s.handle));
-      a.appendChild(el("span", "reach-note", s.note));
+      var a = link("social-row reveal", s.url, "");
+      var name = el("strong", "", s.name);
+      var meta = el("span", "social-meta");
+      meta.appendChild(el("b", "", s.handle));
+      meta.appendChild(el("span", "", s.note));
+      a.appendChild(name); a.appendChild(meta);
+      if (s.photo) {
+        var th = el("img", "social-thumb"); th.src = s.photo; th.alt = ""; th.loading = "lazy"; a.appendChild(th);
+      }
+      if (fine && s.photo) {
+        a.addEventListener("pointerenter", function (e) {
+          float.src = s.photo; tx2 = Math.min(e.clientX, innerWidth - 340); ty2 = e.clientY;
+          if (!float.classList.contains("on")) { fx = tx2; fy = ty2; }
+          floating = true; float.classList.add("on");
+          if (!fr) fr = requestAnimationFrame(drift);
+        });
+        a.addEventListener("pointermove", function (e) { tx2 = Math.min(e.clientX, innerWidth - 340); ty2 = e.clientY; });
+        a.addEventListener("pointerleave", function () { floating = false; float.classList.remove("on"); });
+      }
       $("social-grid").appendChild(a);
     });
   }
