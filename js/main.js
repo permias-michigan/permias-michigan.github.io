@@ -400,6 +400,7 @@
     box.appendChild(ics);
     return box;
   }
+  function shortDate(d) { var p = d.split("-"); return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1] - 1] + " " + (+p[2]); }
   if (page === "home" && $("next-event")) {
     var nextEv = upcoming.filter(function (e) { return !e.tba; })[0];
     if (nextEv) {
@@ -415,7 +416,18 @@
       txt.appendChild(link("next-title", eventUrl(nextEv), nextEv.title));
       txt.appendChild(el("p", "", [longDate(nextEv.date), nextEv.venue].filter(Boolean).join(", ")));
       wrapB.appendChild(num); wrapB.appendChild(txt); wrapB.appendChild(calLinks(nextEv));
-      ban.appendChild(wrapB); $("next-event").appendChild(ban);
+      var rest = upcoming.filter(function (e) { return !e.tba && e !== nextEv; });
+      if (rest.length) {
+        var more = el("div", "wrap next-more");
+        more.appendChild(el("span", "", "Also coming up"));
+        rest.forEach(function (e) {
+          var m = link("", eventUrl(e), "");
+          m.appendChild(el("b", "", shortDate(e.date)));
+          m.appendChild(document.createTextNode(" " + e.title));
+          more.appendChild(m);
+        });
+        ban.appendChild(wrapB); ban.appendChild(more); $("next-event").appendChild(ban);
+      } else { ban.appendChild(wrapB); $("next-event").appendChild(ban); }
     }
   }
   if (page === "join") {
