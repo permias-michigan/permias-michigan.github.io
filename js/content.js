@@ -129,11 +129,12 @@ window.SITE = {
     {
       id: "sea-mixer", date: "2026-11-15", category: "Cultural event",
       title: "Southeast Asian Mixer",
-      dateLabel: "November 15, 2026",
+      dateLabel: "Sunday, November 15, 2026, 1 to 3:30 pm",
       venue: "To be announced",
-      summary: "Meet Southeast Asian students across U-M, with a fashion show.",
-      overview: ["A mixer for Southeast Asian student communities at U-M, with time to mingle and a fashion show."],
-      highlights: ["Mingle with Southeast Asian student orgs", "Fashion show"],
+      theme: "Southeast Asian fashion on the runway",
+      summary: "From batik to ao dai, chut thai to kebaya: Southeast Asian fashion takes the runway.",
+      overview: ["From batik to ao dai, chut thai to kebaya, Southeast Asian cultures have always known how to make things last. This year, we're bringing that spirit to the runway.", "Come mingle with Southeast Asian student communities across U-M and watch the fashion show."],
+      highlights: ["Fashion show", "Batik, ao dai, chut thai, and kebaya", "Mingle with Southeast Asian student orgs"],
       photos: [],
       links: [{ label: "Follow updates on Instagram", url: "https://www.instagram.com/indonesia.umich/" }]
     },
