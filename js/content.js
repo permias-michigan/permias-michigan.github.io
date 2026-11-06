@@ -105,6 +105,39 @@ window.SITE = {
   // Use the last day of the event in YYYY-MM-DD format.
   events: [
     {
+      id: "pro-dev-2", date: "2026-11-22", category: "Internal event",
+      title: "Professional Development #2",
+      dateLabel: "November 22, 2026",
+      venue: "To be announced",
+      summary: "Our second professional development session of the semester.",
+      overview: ["The second session in our professional development series. Details are coming soon on Instagram."],
+      highlights: ["Career growth", "Community"],
+      photos: [],
+      links: [{ label: "Follow updates on Instagram", url: "https://www.instagram.com/indonesia.umich/" }]
+    },
+    {
+      id: "gamelan-workshop", date: "2026-11-20", category: "Cultural event",
+      title: "Gamelan Workshop",
+      dateLabel: "November 20, 2026 (tentative)",
+      venue: "To be announced",
+      summary: "Try playing gamelan, the traditional Indonesian ensemble.",
+      overview: ["A hands-on introduction to gamelan, the bronze percussion ensemble at the heart of Javanese and Balinese music. Details are coming soon on Instagram."],
+      highlights: ["Hands-on gamelan", "Open to everyone"],
+      photos: [],
+      links: [{ label: "Follow updates on Instagram", url: "https://www.instagram.com/indonesia.umich/" }]
+    },
+    {
+      id: "sea-mixer", date: "2026-11-15", category: "Cultural event",
+      title: "Southeast Asian Mixer",
+      dateLabel: "November 15, 2026",
+      venue: "To be announced",
+      summary: "Meet Southeast Asian students across U-M, with a fashion show.",
+      overview: ["A mixer for Southeast Asian student communities at U-M, with time to mingle and a fashion show."],
+      highlights: ["Mingle with Southeast Asian student orgs", "Fashion show"],
+      photos: [],
+      links: [{ label: "Follow updates on Instagram", url: "https://www.instagram.com/indonesia.umich/" }]
+    },
+    {
       id: "natw", date: "2026-11-12", category: "Cultural event",
       title: "Night Around the World (NATW)",
       dateLabel: "November 12, 2026",
