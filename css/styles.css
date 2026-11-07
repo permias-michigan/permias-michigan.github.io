@@ -462,3 +462,13 @@ blockquote .batik{z-index:-1}
 @media (max-width:480px){.letter-line,.letter-name{grid-template-columns:62px minmax(0,1fr);gap:8px}.letter-line b{font-size:.9rem}}
 @media (max-width:860px){.talk-write{grid-template-columns:1fr;gap:34px;padding-block:60px}.letter{transform:none;padding:24px 22px}.talk-hero .wrap{padding-block:64px 52px}.talk-social{padding-bottom:64px}}
 @media (prefers-reduced-motion:reduce){.letter,.chip,.social-row,.social-row::before,.talk-email span::after{transition:none}.letter{transform:none}}
+.cat-years{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.cat-years .chip{background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.cat-years .chip[aria-pressed="true"]{background:var(--night);box-shadow:none;color:#fff}
+.stu-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.stu{padding:22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);transition:transform .25s var(--ease),box-shadow .25s}
+.stu:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 2px var(--blue)}
+.stu-pic{display:grid;place-items:center;width:84px;height:84px;margin-bottom:14px;border-radius:50%;overflow:hidden;background:var(--night);color:var(--gold);font:800 1.7rem "Bricolage Grotesque",sans-serif}
+.stu-pic img{width:100%;height:100%;object-fit:cover}
+.stu h3{font-size:1.2rem;font-weight:800}
+.stu p{font-size:.95rem}

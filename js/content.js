@@ -13,11 +13,12 @@ window.SITE = {
 
   // Optional Google Form links. When set, these replace the email options.
   joinForm: "",
-  alumniForm: "",
+  studentForm: "",
 
-  // Only list alumni who agreed to appear on this public website.
-  // Format: { name: "Name", year: "2024", field: "Public Policy", role: "Analyst, Company", city: "Jakarta", linkedin: "https://..." }
-  alumni: [],
+  // Student catalog. Only list students who agreed to appear on this public website.
+  // schoolYear groups people into tabs. photo is optional (put images in assets/students/).
+  // Format: { name: "Name", schoolYear: "2026-2027", classOf: "2028", major: "Computer Engineering", hometown: "Jakarta", photo: "assets/students/name.jpg", instagram: "https://..." }
+  students: [],
 
   // Photos that fade in and out at the top of the homepage. Leave empty to show only the batik pattern.
   heroPhotos: [

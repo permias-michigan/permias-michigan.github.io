@@ -33,7 +33,7 @@
   var menu = el("button", "menu", "Menu"); menu.setAttribute("aria-expanded", "false"); menu.setAttribute("aria-controls", "nav");
   inner.appendChild(menu);
   var nav = el("nav"); nav.id = "nav";
-  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["alumni.html", "Alumni", "alumni"], ["join.html", "Join", "join"], ["contact.html", "Contact", "contact"]].forEach(function (i) {
+  [["events.html", "Events", "events"], ["team.html", "Team", "team"], ["resources.html", "Resources", "resources"], ["students.html", "Students", "students"], ["join.html", "Join", "join"], ["contact.html", "Contact", "contact"]].forEach(function (i) {
     var a = link("", i[0], i[1]);
     if (i[2] === page || (page === "event" && i[2] === "events")) a.setAttribute("aria-current", "page");
     nav.appendChild(a);
@@ -444,37 +444,52 @@
       });
     }
   }
-  if (page === "alumni") {
-    var addHref = S.alumniForm || "mailto:" + S.email + "?subject=" + encodeURIComponent("Add me to the PERMIAS alumni directory") + "&body=" + encodeURIComponent("Please list me on the public alumni directory.\n\nName:\nGraduation year:\nField or program:\nCurrent role (optional):\nCity (optional):\nLinkedIn (optional):");
-    $("alumni-add").href = addHref; $("alumni-add-first").href = addHref;
-    var all = (S.alumni || []).slice().sort(function (a, b) { return String(b.year).localeCompare(String(a.year)) || a.name.localeCompare(b.name); });
-    if (!all.length) {
-      $("alumni-tools").hidden = true; $("alumni-empty").hidden = false;
+  if (page === "students") {
+    var addStu = S.studentForm || "mailto:" + S.email + "?subject=" + encodeURIComponent("Add me to the PERMIAS student catalog") + "&body=" + encodeURIComponent("Please list me in the student catalog.\n\nName:\nClass of (graduation year):\nMajor or program:\nHometown:\nInstagram (optional):\n\nI'll attach a photo if I'd like one shown.");
+    $("stu-add").href = addStu; $("stu-add-first").href = addStu;
+    var everyone = (S.students || []).slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+    var years = everyone.map(function (s) { return s.schoolYear; }).filter(function (y, i, l) { return y && l.indexOf(y) === i; }).sort().reverse();
+    if (!everyone.length) {
+      $("stu-tools").hidden = true; $("cat-years").hidden = true; $("stu-empty").hidden = false;
     } else {
-      var yr = $("alumni-year");
-      all.map(function (a) { return String(a.year); }).filter(function (y, i, l) { return y && l.indexOf(y) === i; }).forEach(function (y) {
-        var o = el("option", "", y); o.value = y; yr.appendChild(o);
-      });
-      var drawAlumni = function () {
-        var q = $("alumni-search").value.trim().toLowerCase(), y = yr.value, ul = $("alumni-list");
+      var curYear = years[0];
+      var drawStudents = function () {
+        var q = $("stu-search").value.trim().toLowerCase(), cls = $("stu-class").value, ul = $("stu-list");
         ul.textContent = "";
-        var hits = all.filter(function (a) {
-          return (!y || String(a.year) === y) && [a.name, a.field, a.role, a.city].join(" ").toLowerCase().indexOf(q) > -1;
+        var hits = everyone.filter(function (s) {
+          return (!curYear || s.schoolYear === curYear) && (!cls || String(s.classOf) === cls) &&
+            [s.name, s.major, s.hometown].join(" ").toLowerCase().indexOf(q) > -1;
         });
-        hits.forEach(function (a) {
-          var li = el("li", "alum");
-          li.appendChild(el("h3", "", a.name));
-          li.appendChild(el("p", "alum-meta", [a.field, a.year && "Class of " + a.year].filter(Boolean).join(", ")));
-          var sub = [a.role, a.city].filter(Boolean).join(", ");
-          if (sub) li.appendChild(el("p", "", sub));
-          if (a.linkedin) li.appendChild(link("c-go", a.linkedin, "LinkedIn profile"));
+        hits.forEach(function (s) {
+          var li = el("li", "stu");
+          var pic = el("div", "stu-pic");
+          if (s.photo) { var im = el("img"); im.src = s.photo; im.alt = ""; im.loading = "lazy"; pic.appendChild(im); }
+          else pic.textContent = s.name.split(" ").map(function (w) { return w[0]; }).slice(0, 2).join("");
+          li.appendChild(pic);
+          li.appendChild(el("h3", "", s.name));
+          li.appendChild(el("p", "alum-meta", [s.major, s.classOf && "Class of " + s.classOf].filter(Boolean).join(", ")));
+          if (s.hometown) li.appendChild(el("p", "", "From " + s.hometown));
+          if (s.instagram) li.appendChild(link("c-go", s.instagram, "Instagram"));
           ul.appendChild(li);
         });
-        $("alumni-count").textContent = hits.length ? hits.length + (hits.length === 1 ? " alum" : " alumni") : "No alumni match that search. Try a different name, field, or year.";
+        $("stu-count").textContent = hits.length ? hits.length + (hits.length === 1 ? " student" : " students") : "No students match that search. Try a different name, major, or class.";
       };
-      $("alumni-search").addEventListener("input", drawAlumni);
-      yr.addEventListener("change", drawAlumni);
-      drawAlumni();
+      var fillClasses = function () {
+        var sel = $("stu-class"); sel.length = 1;
+        everyone.filter(function (s) { return s.schoolYear === curYear; }).map(function (s) { return String(s.classOf || ""); })
+          .filter(function (c, i, l) { return c && l.indexOf(c) === i; }).sort().forEach(function (c) { var o = el("option", "", "Class of " + c); o.value = c; sel.appendChild(o); });
+      };
+      years.forEach(function (y) {
+        var b = el("button", "chip", y.replace("-", "–")); b.type = "button"; b.setAttribute("aria-pressed", y === curYear);
+        b.addEventListener("click", function () {
+          curYear = y; [].forEach.call($("cat-years").children, function (x) { x.setAttribute("aria-pressed", x === b); });
+          fillClasses(); drawStudents();
+        });
+        $("cat-years").appendChild(b);
+      });
+      $("stu-search").addEventListener("input", drawStudents);
+      $("stu-class").addEventListener("change", drawStudents);
+      fillClasses(); drawStudents();
     }
   }
   if (page === "events") {
