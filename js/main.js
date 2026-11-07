@@ -519,7 +519,23 @@
     [e.category, e.dateLabel, e.venue].forEach(function (x) { if (x) $("event-facts").appendChild(el("li", "", x)); });
     var body = $("event-body");
     (e.overview || []).forEach(function (t, n2) { body.appendChild(el("p", n2 ? "ev-copy reveal" : "lead reveal", t)); });
-    if (e.signup && e.date >= today) body.appendChild(link("btn blue", e.signup, "Sign up"));
+    if (e.signup && e.date >= today) {
+      var reg = el("div", "reg-band reveal"); reg.dataset.batik = "";
+      var rt = el("div");
+      rt.appendChild(el("h2", "", e.signupLabel || "Sign up"));
+      rt.appendChild(el("p", "", "Save your spot with the Google Form."));
+      reg.appendChild(rt);
+      reg.appendChild(link("btn sun reg-btn", e.signup, "Register now"));
+      body.appendChild(reg);
+    }
+    if (e.posters && e.posters.length) {
+      var pg = el("div", "posters reveal");
+      e.posters.forEach(function (src) {
+        var a = link("", src, ""); var im = el("img"); im.src = src; im.alt = e.title + " poster"; im.loading = "lazy";
+        a.appendChild(im); pg.appendChild(a);
+      });
+      body.appendChild(pg);
+    }
     if (e.date >= today && !e.tba) body.appendChild(calLinks(e));
     if (e.highlights && e.highlights.length) {
       var hl = el("ul", "pills reveal");
