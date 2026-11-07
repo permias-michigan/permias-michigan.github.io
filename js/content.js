@@ -123,7 +123,11 @@ window.SITE = {
       dateLabel: "Friday, November 20, 2026, 6:30 to 8:15 pm",
       venue: "Cady Room, Stearns Building",
       summary: "Experience the sounds, rhythms, and traditions of Indonesia in a hands-on gamelan workshop.",
-      overview: ["Experience the sounds, rhythms, and traditions of Indonesia! Join us for a hands-on workshop on gamelan, the traditional Indonesian ensemble."],
+      overview: [
+        "Experience the sounds, rhythms, and traditions of Indonesia! Join us for a hands-on workshop on gamelan, the traditional Indonesian ensemble.",
+        "Gamelan is the traditional orchestra of Java and Bali, built mostly from bronze gongs, metallophones, and drums. Instead of one star soloist, every player carries a small part, and the parts lock together into one shimmering sound. It has accompanied ceremonies, dance, and wayang shadow puppetry for centuries.",
+        "In this workshop, you'll learn where gamelan comes from and what each instrument does, then sit down at the instruments and learn to play a simple piece together as a group. No music experience needed. Everyone is welcome."
+      ],
       highlights: ["Learn to play traditional gamelan instruments", "Discover the history and origins of gamelan", "Explore Indonesian culture through music and tradition"],
       signup: "https://bit.ly/GamelanWorkshop",
       signupLabel: "Register for the workshop",
